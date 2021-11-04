@@ -9,8 +9,16 @@ const App = () => {
   const quoteAPI = async () => {
     let quoteArray = [];
     try {
-      const data = axios.get("http://quotes.stormconsultancy.co.uk/random.json");
+      const data = await axios.get("http://quotes.stormconsultancy.co.uk/random.json");
+      quoteArray = data.data;
       console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+
+    try {
+      setQuote(quoteArray.quote);
+      setAuthor(quoteArray.author);
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +28,15 @@ const App = () => {
     quoteAPI();
   },[])
 
-  return<div className="App"> Hello World!</div>
-}
+  return (
+  <div className="App">
+    <div id="quote-box">
+    <div id="text">{quote}</div>
+    <div id="author">{author}</div>
+    <a id="#tweet-quote" href="https://twitter.com/intent/tweet">Tweet it!</a>
+    <button id="new-quote" onClick={quoteAPI}>One more</button>
+    </div>
+  </div>
+  )}
 
 export default App;
