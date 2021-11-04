@@ -2,37 +2,57 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#quote-box {
+  font-family:'Roboto', sans-serif;
+  width: 50%;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fa-quote-left {
+  font-size: 1.3em;
+  padding-bottom: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+.fa-quote-right {
+  font-size: 1.3em;
+  padding-bottom: 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#text {
+  font-size: 2em;
+}
+
+#author {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.6em;
+  text-align: right;
+  padding-top: 2%;
+  padding-right: 5%;
+}
+
+#tweet-quote {
+  float: left;
+  margin-right: 20%;
+}
+
+#new-quote {
+  float:right;
+  margin-left: 20%;
+}
+
+.page-footer {
+  margin-bottom: 0px;
+  position:absolute;
 }
