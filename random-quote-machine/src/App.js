@@ -33,7 +33,7 @@ const App = () => {
     <div id="quote-box">
     <div id="text">{quote}</div>
     <div id="author">{author}</div>
-    <a id="#tweet-quote" href="https://twitter.com/intent/tweet">Tweet it!</a>
+    <a id="tweet-quote" href="https://twitter.com/intent/tweet">Tweet it!</a>
     <button id="new-quote" onClick={quoteAPI}>One more</button>
     </div>
   </div>
