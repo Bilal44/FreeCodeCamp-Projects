@@ -52,7 +52,10 @@
   margin-left: 20%;
 }
 
-.page-footer {
-  margin-bottom: 0px;
+footer {
+  width: 50%;
+  left: 25%;
+  text-align: right;
   position:absolute;
-}
+  bottom: 0;
+ }
