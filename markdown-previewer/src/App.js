@@ -12,23 +12,27 @@ const App = () =>  {
   [GitHub Porfolio](https//bilal44.github.io) link
   \`inline code\`
   \`\`\`
+  CODEBLOCK
   func() {
     return -1
   }
   \`\`\`
-  \* list item 1
-  \* list item 2
-  \> blockquote\n
-  an image like ![freeCodeCamp Logo](https://cdn.changelog.com/uploads/icons/news_sources/Qo/icon_small.png)
+  * list item 1
+  * list item 2
+  > blockquote of
+  text
+  an image like ![freeCodeCamp Logo](https://cdn.iconscout.com/icon/free/png-256/free-codecamp-3445596-2878528.png)
   and finally some **bolded text**`
 
   var [text, setText] = React.useState(placeHolderText);
 
   return (
     <div className="App">
-      <h1> Markdown Previewer</h1>
+      <h2 className="text-center mt-4"> Markdown Previewer</h2>
+      <div className="row">
       <Editor text={text} setText={setText} />
       <Preview markdown={text} />
+      </div>
     </div>
   );
 

@@ -6,13 +6,17 @@ export const Preview = ({ markdown }) => {
     breaks: true
   });
 
-  const renderer = new marked.Renderer();
-
   return (
-    <div
-    id="preview"
-    dangerouslySetInnerHTML={{
-      __html: marked(markdown, { renderer: renderer }),
-    }}></div>
+    <div className="form-group col-5 auto">
+      <label>Preview the result here:</label>
+      <div
+        type="input"
+        className="rounded"
+        id="preview"
+        dangerouslySetInnerHTML={{
+          __html: marked(markdown)
+        }}
+      />
+    </div>
   )
 }
