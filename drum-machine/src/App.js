@@ -41,11 +41,13 @@ const sounds = [
 ];
 
 const App = () => (
-  <div id="display" className="display">
-    <h1>Play a sound</h1>
-    {sounds.map((sound, idx) => (
-      <DrumButton text={sound.key} key={idx} audio={sound.mp3} />
-    ))}
+  <div className="container" id="drum-machine">
+    <div id="display" className="display">
+      <h1>Play a sound: </h1>
+      {sounds.map((sound, idx) => (
+        <DrumButton text={sound.key} key={idx} audio={sound.mp3} />
+      ))}
+    </div>
   </div>
 );
 
