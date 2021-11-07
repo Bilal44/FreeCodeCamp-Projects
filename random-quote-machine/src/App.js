@@ -11,7 +11,6 @@ const App = () => {
     try {
       const data = await axios.get("http://quotes.stormconsultancy.co.uk/random.json");
       quoteArray = data.data;
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -33,10 +32,10 @@ const App = () => {
       <div id="quote-box" className="card border-info mb-3">
         <div className="card-body">
         <div id="text" className="card-text">
-          <i class="fas fa-quote-left"></i>
+          <i className="fas fa-quote-left"></i>
           {quote}
-          <i class="fas fa-quote-right"></i>
-          </div>
+          <i className="fas fa-quote-right"></i>
+        </div>
         <div id="author" className="card-title">- {author}</div>
         </div>
         <div className="btn btn-group">
