@@ -22,6 +22,7 @@ function App() {
   return (
     <div className="calculator">
       <div className="nums-container">
+      <button id="clear">Clear</button>
         {nums.map(num => (
           <button
             className={`dark-grey ${num === 0 && 'big-h'}`}
