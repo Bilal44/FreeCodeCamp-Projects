@@ -1,5 +1,6 @@
 import './App.css';
 const nums = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
+const ops = ['/', '*', '-', '+'];
 const ids = {
   7: 'seven',
   8: 'eight',
@@ -11,6 +12,10 @@ const ids = {
   2: 'two',
   3: 'three',
   0: 'zero',
+  '/': 'divide', 
+  '*': 'multiply', 
+  '-': 'subtract', 
+  '+': 'add'
 }
 
 function App() {
@@ -24,6 +29,14 @@ function App() {
             id={ids[num]}
           >
             {num}
+          </button>
+        ))}
+        {ops.map(op => (
+          <button
+            key={op}
+            id={ids[op]}
+          >
+            {op}
           </button>
         ))}
       </div>
