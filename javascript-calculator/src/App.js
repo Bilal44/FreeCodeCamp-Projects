@@ -12,9 +12,9 @@ const ids = {
   2: 'two',
   3: 'three',
   0: 'zero',
-  '/': 'divide', 
-  '*': 'multiply', 
-  '-': 'subtract', 
+  '/': 'divide',
+  '*': 'multiply',
+  '-': 'subtract',
   '+': 'add'
 }
 
@@ -39,6 +39,8 @@ function App() {
             {op}
           </button>
         ))}
+        <button id="decimal"
+        >.</button>
       </div>
     </div>
   );
