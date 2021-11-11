@@ -21,6 +21,8 @@ const ids = {
 function App() {
   return (
     <div className="calculator">
+    <div id="display" className="display">
+    </div>
       <div className="nums-container">
       <button id="clear">Clear</button>
         {nums.map(num => (
