@@ -42,6 +42,8 @@ function App() {
         ))}
         <button id="decimal"
         >.</button>
+        <button id="equals"
+        >=</button>
       </div>
     </div>
   );
