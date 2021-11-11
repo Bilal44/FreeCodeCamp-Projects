@@ -21,31 +21,43 @@ const ids = {
 function App() {
   return (
     <div className="calculator">
-    <div id="display" className="display">
-    </div>
+      <div id="display" className="display">
+        001236876
+      </div>
       <div className="nums-container">
-      <button id="clear">Clear</button>
+        <button
+          className="clear"
+          id="clear">
+          Clear
+        </button>
         {nums.map(num => (
           <button
             className={`dark-grey ${num === 0 && 'big-h'}`}
             key={num}
-            id={ids[num]}
-          >
+            id={ids[num]}>
             {num}
           </button>
         ))}
+        <button
+          className="dark-grey"
+          id="decimal">
+          .
+        </button>
+      </div>
+      <div className="ops-container">
         {ops.map(op => (
           <button
+            className="yellow"
             key={op}
-            id={ids[op]}
-          >
+            id={ids[op]}>
             {op}
           </button>
         ))}
-        <button id="decimal"
-        >.</button>
-        <button id="equals"
-        >=</button>
+        <button
+          className="yellow"
+          id="equals">
+          =
+        </button>
       </div>
     </div>
   );
