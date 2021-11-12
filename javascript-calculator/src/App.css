@@ -82,10 +82,14 @@ body {
 
   .display {
     color: #000;
-    font-size: 36px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
     position: relative;
     padding: 20px 10px;
     text-align: right;
     height: 70px;
     width: 100%;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
   }

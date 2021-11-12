@@ -20,8 +20,6 @@ const ids = {
   '+': 'add'
 }
 
-
-
 class App extends React.Component {
   state = {
     lastPressed: undefined,
@@ -63,7 +61,6 @@ class App extends React.Component {
 
       default: {
         let e = undefined;
-        // check for other op
         if (ops.includes(innerText)) {
           if (ops.includes(lastPressed) && innerText !== '-') {
             const lastNumberIdx = calc.split('').reverse()
@@ -84,13 +81,13 @@ class App extends React.Component {
 
     this.setState({
       lastPressed: innerText
-    })
+    });
   }
 
   render() {
     const handleClick = this.handleClick.bind(this);
+    const { calc } = this.state;
 
-    const { currentNumber, calc } = this.state;
     return (
       <div className="calculator">
         <div id="display" className="display">
@@ -114,7 +111,8 @@ class App extends React.Component {
           ))}
           <button
             className="dark-grey"
-            id="decimal">
+            id="decimal"
+            onClick={handleClick}>
             .
           </button>
         </div>
