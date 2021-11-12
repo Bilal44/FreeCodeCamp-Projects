@@ -107,7 +107,8 @@ class App extends React.Component {
             <button
               className={`dark-grey ${num === 0 && 'big-h'}`}
               key={num}
-              id={ids[num]}>
+              id={ids[num]}
+              onClick={handleClick}>
               {num}
             </button>
           ))}
@@ -122,13 +123,15 @@ class App extends React.Component {
             <button
               className="yellow"
               key={op}
-              id={ids[op]}>
+              id={ids[op]}
+              onClick={handleClick}>
               {op}
             </button>
           ))}
           <button
             className="yellow"
-            id="equals">
+            id="equals"
+            onClick={handleClick}>
             =
           </button>
         </div>
