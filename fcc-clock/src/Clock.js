@@ -4,16 +4,20 @@ export class Clock extends React.Component {
     render() {
         return (
             <div>
-                <div id="break-label">Break Length</div>
-                <button id="break-decrement">-</button>
-                <div id="break-length">5</div>
-                <button id="break-increment">+</button>
-                <div id="session-label">Session Label</div>
-                <button id="session-decrement">-</button>
-                <div id="session-length">25</div>
-                <button id="session-increment">+</button>
-                <div id="timer-label">Session Timer</div>
-                <div id="time-left">00:00</div>
+                <div className="flex">
+                    <h2 id="break-label">Break Label</h2>
+                    <button id="break-decrement">-</button>
+                    <div id="break-length">5</div>
+                    <button id="break-increment">+</button>
+                </div>
+                <div className="flex">
+                    <h2 id="session-label">Session Label</h2>
+                    <button id="session-decrement">-</button>
+                    <div id="session-length">25</div>
+                    <button id="session-increment">+</button>
+                </div>
+                <h1 id="timer-label">Session Timer</h1>
+                <h1 id="time-left">25:00</h1>
                 <button id="start_stop">START/STOP</button>
                 <button id="reset">RESET</button>
             </div>
