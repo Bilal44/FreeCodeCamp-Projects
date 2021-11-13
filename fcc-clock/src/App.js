@@ -1,7 +1,7 @@
 import './App.css';
 import { Clock } from './Clock';
 
-function App() {
+const App = () => {
   return (
     <Clock />
   );
