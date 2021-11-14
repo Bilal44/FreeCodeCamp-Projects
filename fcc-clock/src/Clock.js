@@ -26,14 +26,18 @@ export class Clock extends React.Component {
     }
 
     handleLengthChange = (item, change) => {
-        if (item === this.state.breakLength) {
-            this.setState({
-                breakLength: this.state.breakLength + change
-            });
+        const breakValue = this.state.breakLength;
+        const sessionValue = this.state.sessionLength
+        if (item === "break") {
+            if ((change > 0 && breakValue < 60) || (change < 0 && breakValue > 1))
+                this.setState({
+                    breakLength: this.state.breakLength + change
+                });
         } else {
-            this.setState({
-                sessionLength: this.state.sessionLength + change
-            });
+            if ((change > 0 && sessionValue < 60) || (change < 0 && sessionValue > 1))
+                this.setState({
+                    sessionLength: this.state.sessionLength + change
+                });
         }
     }
 
@@ -52,15 +56,15 @@ export class Clock extends React.Component {
             <div>
                 <div className="flex">
                     <h2 id="break-label">Break Label</h2>
-                    <button id="break-decrement" onClick={(e) => handleChange(breakLength, -1)}>-</button>
+                    <button id="break-decrement" onClick={(e) => handleChange("break", -1)}>-</button>
                     <div id="break-length">{breakLength}</div>
-                    <button id="break-increment" onClick={(e) => handleChange(breakLength, 1)}>+</button>
+                    <button id="break-increment" onClick={(e) => handleChange("break", 1)}>+</button>
                 </div>
                 <div className="flex">
                     <h2 id="session-label">Session Label</h2>
-                    <button id="session-decrement" onClick={(e) => handleChange(sessionLength, -1)}>-</button>
+                    <button id="session-decrement" onClick={(e) => handleChange("session", -1)}>-</button>
                     <div id="session-length">{sessionLength}</div>
-                    <button id="session-increment" onClick={(e) => handleChange(sessionLength, 1)}>+</button>
+                    <button id="session-increment" onClick={(e) => handleChange("session", 1)}>+</button>
                 </div>
                 <h1 id="timer-label">Session Timer</h1>
                 <h1 id="time-left">{convertToTime(timeLeft)}</h1>
