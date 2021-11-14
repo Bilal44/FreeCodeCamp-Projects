@@ -9,6 +9,10 @@ export class Clock extends React.Component {
         currentTimer: "Session"
     }
 
+    componentDidMount() {
+        this.audio = document.getElementById("beep");
+    }
+
     convertToTime = (count) => {
         let minutes = Math.floor(count / 60);
         let seconds = count % 60;
@@ -20,6 +24,8 @@ export class Clock extends React.Component {
     }
 
     handleReset = () => {
+        const audio = this.audio;
+
         this.setState({
             breakLength: 5,
             sessionLength: 25,
@@ -29,6 +35,8 @@ export class Clock extends React.Component {
         });
 
         clearInterval(this.loop);
+        audio.pause();
+        audio.currentTime = 0;
     }
 
     handleLengthChange = (item, change) => {
@@ -65,6 +73,7 @@ export class Clock extends React.Component {
 
     handlePlayPause = () => {
         const { isPlaying } = this.state;
+        const audio = this.audio;
 
         if (isPlaying) {
             clearInterval(this.loop);
@@ -90,6 +99,7 @@ export class Clock extends React.Component {
                         currentTimer: (currentTimer === 'Session') ? 'Break' : 'Session',
                         timeLeft: (currentTimer === 'Session') ? (breakLength * 60) : (sessionLength * 60)
                     });
+                    audio.play();
 
                 } else {
                     this.setState({
@@ -132,6 +142,7 @@ export class Clock extends React.Component {
                 <h1 id="time-left">{convertToTime(timeLeft)}</h1>
                 <button id="start_stop" onClick={handlePlayPause}>START/STOP</button>
                 <button id="reset" onClick={handleReset}>RESET</button>
+                <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
             </div>
         )
     }
