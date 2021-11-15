@@ -23,3 +23,7 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.clock-wrapper {
+  border-style: groove;
+}
