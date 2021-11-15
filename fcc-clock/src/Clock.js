@@ -128,20 +128,20 @@ export class Clock extends React.Component {
             <div>
                 <div className="flex">
                     <h2 id="break-label">Break Length</h2>
-                    <button id="break-decrement" onClick={(e) => handleChange("break", -1)}>-</button>
+                    <button id="break-decrement" onClick={(e) => handleChange("break", -1)}><i class="fas fa-angle-down"></i></button>
                     <div id="break-length">{breakLength}</div>
-                    <button id="break-increment" onClick={(e) => handleChange("break", 1)}>+</button>
+                    <button id="break-increment" onClick={(e) => handleChange("break", 1)}><i class="fas fa-angle-up"></i></button>
                 </div>
                 <div className="flex">
                     <h2 id="session-label">Session Length</h2>
-                    <button id="session-decrement" onClick={(e) => handleChange("session", -1)}>-</button>
+                    <button id="session-decrement" onClick={(e) => handleChange("session", -1)}><i class="fas fa-angle-down"></i></button>
                     <div id="session-length">{sessionLength}</div>
-                    <button id="session-increment" onClick={(e) => handleChange("session", 1)}>+</button>
+                    <button id="session-increment" onClick={(e) => handleChange("session", 1)}><i class="fas fa-angle-up"></i></button>
                 </div>
                 <h1 id="timer-label">{currentTimer}</h1>
                 <h1 id="time-left">{convertToTime(timeLeft)}</h1>
-                <button id="start_stop" onClick={handlePlayPause}>START/STOP</button>
-                <button id="reset" onClick={handleReset}>RESET</button>
+                <button id="start_stop" onClick={handlePlayPause}><i class="fas fa-play"></i></button>
+                <button id="reset" onClick={handleReset}><i class="fas fa-history"></i></button>
                 <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
             </div>
         )
