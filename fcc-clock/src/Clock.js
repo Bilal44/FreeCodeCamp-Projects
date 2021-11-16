@@ -121,7 +121,8 @@ export class Clock extends React.Component {
             breakLength,
             sessionLength,
             timeLeft,
-            currentTimer
+            currentTimer,
+            isPlaying
         } = this.state;
 
         return (
@@ -141,7 +142,7 @@ export class Clock extends React.Component {
                 <div className="clock-wrapper">
                     <h1 id="timer-label">{currentTimer}</h1>
                     <h1 id="time-left">{convertToTime(timeLeft)}</h1>
-                    <button id="start_stop" onClick={handlePlayPause}><i className="fas fa-play"></i><i className="fas fa-pause"></i></button>
+                    <button id="start_stop" onClick={handlePlayPause}><i className={`fas fa-${isPlaying ? "pause" : "play"}`}></i></button>
                     <button id="reset" onClick={handleReset}><i className="fas fa-history"></i></button>
                     <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
                 </div>
