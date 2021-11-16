@@ -126,16 +126,16 @@ export class Clock extends React.Component {
 
         return (
             <div>
-                <div className="flex">
-                    <h2 id="break-label">Break Length</h2>
-                    <button id="break-decrement" onClick={(e) => handleChange("break", -1)}><i className="fas fa-angle-down"></i></button>
-                    <div id="break-length">{breakLength}</div>
+                <div className="grid">
+                    <h2 id="break-label" className="label">Break Length</h2>
+                    <button id="break-decrement" class="left" onClick={(e) => handleChange("break", -1)}><i className="fas fa-angle-down"></i></button>
+                    <h3 id="break-length">{breakLength}</h3>
                     <button id="break-increment" onClick={(e) => handleChange("break", 1)}><i className="fas fa-angle-up"></i></button>
                 </div>
-                <div className="flex">
-                    <h2 id="session-label">Session Length</h2>
-                    <button id="session-decrement" onClick={(e) => handleChange("session", -1)}><i className="fas fa-angle-down"></i></button>
-                    <div id="session-length">{sessionLength}</div>
+                <div className="grid">
+                    <h2 id="session-label" className="label">Session Length</h2>
+                    <button id="session-decrement" class="left" onClick={(e) => handleChange("session", -1)}><i className="fas fa-angle-down"></i></button>
+                    <h3 id="session-length">{sessionLength}</h3>
                     <button id="session-increment" onClick={(e) => handleChange("session", 1)}><i className="fas fa-angle-up"></i></button>
                 </div>
                 <div className="clock-wrapper">

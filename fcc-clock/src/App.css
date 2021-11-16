@@ -13,17 +13,30 @@ button {
   background-color: transparent;
   color: #fff;
   cursor: pointer;
-  font-size: 20px;
-  padding: 10px 15px;
-  margin: 10px;
+  font-size: 1.25em;
+  padding: 0.5em 0.75em;
 }
 
-.flex {
-  display: flex;
+button.left {
+  margin-left: 1em;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
   align-items: center;
   justify-content: center;
 }
 
+.grid .label {
+  text-align: left;
+}
+
 .clock-wrapper {
-  border-style: groove;
+  border-style: solid;
+}
+
+.clock-wrapper button {
+  margin: 0.4em;
 }
