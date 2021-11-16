@@ -23,7 +23,7 @@ export class Clock extends React.Component {
         return `${minutes}:${seconds}`;
     }
 
-    handleReset = () => {
+    handleReset = async() => {
         const audio = this.audio;
 
         this.setState({
@@ -35,7 +35,7 @@ export class Clock extends React.Component {
         });
 
         clearInterval(this.loop);
-        audio.pause();
+        await audio.pause();
         audio.currentTime = 0;
     }
 
@@ -128,13 +128,13 @@ export class Clock extends React.Component {
             <div>
                 <div className="grid">
                     <h2 id="break-label" className="label">Break Length</h2>
-                    <button id="break-decrement" class="left" onClick={(e) => handleChange("break", -1)}><i className="fas fa-angle-down"></i></button>
+                    <button id="break-decrement" className="left" onClick={(e) => handleChange("break", -1)}><i className="fas fa-angle-down"></i></button>
                     <h3 id="break-length">{breakLength}</h3>
                     <button id="break-increment" onClick={(e) => handleChange("break", 1)}><i className="fas fa-angle-up"></i></button>
                 </div>
                 <div className="grid">
                     <h2 id="session-label" className="label">Session Length</h2>
-                    <button id="session-decrement" class="left" onClick={(e) => handleChange("session", -1)}><i className="fas fa-angle-down"></i></button>
+                    <button id="session-decrement" className="left" onClick={(e) => handleChange("session", -1)}><i className="fas fa-angle-down"></i></button>
                     <h3 id="session-length">{sessionLength}</h3>
                     <button id="session-increment" onClick={(e) => handleChange("session", 1)}><i className="fas fa-angle-up"></i></button>
                 </div>
