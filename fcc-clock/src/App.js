@@ -3,7 +3,10 @@ import { Clock } from './Clock';
 
 const App = () => {
   return (
-    <Clock />
+    <div>
+      <h1>FCC 25 + 5 Clock</h1>
+      <Clock />
+    </div>
   );
 }
 
