@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  margin: 30vh auto 5vh 50vh;
+  margin: 20vh auto 5vh 40vw;
 }
 
 .display {
@@ -59,7 +59,7 @@ footer {
  }
 
  #title {
-  margin: auto auto 1vh 6.5vh;
+  margin: auto auto 1vh 3vw;
   font-weight: 700;
   color: #581b40;;
  }
