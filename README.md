@@ -1,8 +1,12 @@
 # FreeCodeCamp Projects
 Projects developed for FreeCodeCamp (https://www.freecodecamp.org) online course
+- JavaScript Algorithms and Data Structures
+
+<a href="https://www.freecodecamp.org/certification/bilal44/back-end-development-and-apis" title="JavaScript Algorithms and Data Structures Certificate"><center><img src="./Certificate blob/FCC-JS-Certificate.PNG" text="JavaScript Algorithms and Data Structures Certificate"/></center></a>
+
 - Front End Development
-    1. Build a Random Quote Machine :heavy_check_mark:
-    2. Build a Markdown Previewer :heavy_check_mark:
-    3. Build a Drum Machine :heavy_check_mark:
-    4. Build a JavaScript Calculator :heavy_check_mark:
-    5. Build a 25 + 5 Clock :heavy_check_mark:
+    1. Build a Random Quote Machine :heavy_check_mark: **[Live Demo](http://funnyquotes.herokuapp.com)**
+    2. Build a Markdown Previewer :heavy_check_mark: **[Live Demo](https://viewmarkdown.herokuapp.com)**
+    3. Build a Drum Machine :heavy_check_mark: **[Live Demo](https://musicdrums.herokuapp.com)**
+    4. Build a JavaScript Calculator :heavy_check_mark: **[Live Demo](https://reactjscal.herokuapp.com)**
+    5. Build a 25 + 5 Clock :heavy_check_mark: **[Live Demo](https://fcc-clock.herokuapp.com)**
