@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #40739e;
+  background-color: #e0c2a0;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   min-height: 100vh;
@@ -69,7 +69,10 @@ body {
     background-color:#d63031;
     border-radius: 5%;
     text-align: center;
+  }
 
+  button.clear:active {
+    transform: scale(0.97);
   }
 
   .nums-container {
@@ -93,3 +96,16 @@ body {
     overflow: hidden;
     white-space: nowrap;
   }
+
+  footer {
+    color: #fff;
+    font-size: 1.4em;
+    right: 10%;
+    text-align: right;
+    position:absolute;
+    bottom: 0;
+   }
+
+   h2 {
+     text-align: center;
+   }

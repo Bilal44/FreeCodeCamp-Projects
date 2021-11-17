@@ -1,5 +1,5 @@
 body {
-  background-color: #227093;
+  background-color: #6F1E51;
   color: #fff;
   display: flex;
   align-items: center;
@@ -42,3 +42,12 @@ button.left {
 .clock-wrapper button {
   margin: 0.4em;
 }
+
+footer {
+  color: #fff;
+  font-size: 1.4em;
+  right: 10%;
+  text-align: right;
+  position:absolute;
+  bottom: 0;
+ }

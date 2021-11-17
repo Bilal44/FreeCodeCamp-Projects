@@ -3,17 +3,14 @@
 }
 
 body {
-  background-color:#58B19F;
+  background-color:#006266;
   font-family: 'Lato', sans-serif;
   margin: 0;
   min-height: 100vh;
 }
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  margin: 30vh auto 5vh 50vh;
 }
 
 .display {
@@ -51,3 +48,18 @@ body {
   opacity: 0.7;
   transform: scale(0.9);
 }
+
+footer {
+  color: #fff;
+  font-size: 1.4em;
+  right: 10%;
+  text-align: right;
+  position:absolute;
+  bottom: 0;
+ }
+
+ #title {
+  margin: auto auto 1vh 6.5vh;
+  font-weight: 700;
+  color: #581b40;;
+ }

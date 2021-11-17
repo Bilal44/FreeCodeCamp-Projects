@@ -1,5 +1,5 @@
 body {
-  background-color: #9b59b6;
+  background-color: #58B19F;
 }
 
 #preview {
@@ -12,6 +12,7 @@ body {
 label {
   color: #fff;
   font-size: 1.5em;
+  margin: 2% auto 2% auto;
 }
 
 textarea {

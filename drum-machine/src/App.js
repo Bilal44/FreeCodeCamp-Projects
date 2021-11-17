@@ -42,6 +42,7 @@ const sounds = [
 
 const App = () => (
   <div className="container" id="drum-machine">
+    <h1 id="title">Drum Machine</h1>
     <div id="display" className="display">
       <h1>Play a sound: </h1>
       {sounds.map((sound, idx) => (
@@ -54,12 +55,12 @@ const App = () => (
 document.addEventListener('keydown', (e) => {
   const id = e.key.toUpperCase();
   const audio = document.getElementById(id);
-  
-  if(audio) {
+
+  if (audio) {
     audio.currentTime = 0;
     const parent = audio.parentNode;
     parent.classList.add('active');
-    
+
     const display = parent.parentNode;
     display.querySelector('h1').innerText = `${id} is playing`;
     audio.play();

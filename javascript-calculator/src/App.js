@@ -40,10 +40,12 @@ class App extends React.Component {
       }
 
       case '=': {
-        const evaluated = eval(calc);
-        this.setState({
-          calc: evaluated
-        });
+        if (calc[calc.length - 1] !== " " && calc[calc.length - 1] !== ".") {
+          const evaluated = eval(calc);
+          this.setState({
+            calc: evaluated
+          });
+        } else { }
         break;
       }
 
@@ -70,7 +72,8 @@ class App extends React.Component {
             e = `${calc} ${innerText} `;
           }
         } else {
-          e = (calc === '0') ? innerText : (calc + innerText);
+          debugger;
+          e = (calc == '0') ? innerText : (calc + innerText);
         }
 
         this.setState({
@@ -89,51 +92,54 @@ class App extends React.Component {
     const { calc } = this.state;
 
     return (
-      <div className="calculator">
-        <div id="display" className="display">
-          {calc}
-        </div>
-        <div className="nums-container">
-          <button
-            className="clear"
-            id="clear"
-            onClick={handleClick}>
-            Clear
-          </button>
-          {nums.map(num => (
+      <>
+        <h2>ReactJS Calculator</h2>
+        <div className="calculator">
+          <div id="display" className="display">
+            {calc}
+          </div>
+          <div className="nums-container">
             <button
-              className={`dark-grey ${num === 0 && 'big-h'}`}
-              key={num}
-              id={ids[num]}
+              className="clear"
+              id="clear"
               onClick={handleClick}>
-              {num}
+              Clear
             </button>
-          ))}
-          <button
-            className="dark-grey"
-            id="decimal"
-            onClick={handleClick}>
-            .
-          </button>
-        </div>
-        <div className="ops-container">
-          {ops.map(op => (
+            {nums.map(num => (
+              <button
+                className={`dark-grey ${num === 0 && 'big-h'}`}
+                key={num}
+                id={ids[num]}
+                onClick={handleClick}>
+                {num}
+              </button>
+            ))}
+            <button
+              className="dark-grey"
+              id="decimal"
+              onClick={handleClick}>
+              .
+            </button>
+          </div>
+          <div className="ops-container">
+            {ops.map(op => (
+              <button
+                className="yellow"
+                key={op}
+                id={ids[op]}
+                onClick={handleClick}>
+                {op}
+              </button>
+            ))}
             <button
               className="yellow"
-              key={op}
-              id={ids[op]}
+              id="equals"
               onClick={handleClick}>
-              {op}
+              =
             </button>
-          ))}
-          <button
-            className="yellow"
-            id="equals"
-            onClick={handleClick}>
-            =
-          </button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
