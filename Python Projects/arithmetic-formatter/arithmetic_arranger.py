@@ -33,7 +33,7 @@ def arithmetic_arranger(problems, display_answer = False):
     if(re.search("[^\s0-9.+-]", problem)):
       # E2 validation
       if(re.search("[/|*]", problem)):
-        return "Error: Operator must be '+' or '-'"
+        return "Error: Operator must be '+' or '-'."
       return "Error: Numbers must only contain digits."
 
     # R1 confirmation
@@ -55,10 +55,17 @@ def arithmetic_arranger(problems, display_answer = False):
       return answer   
     
     length = max(len(leftOperand), len(rightOperand)) + 2
-    first_row += leftOperand.rjust(length) + '    '
-    second_row += operator + rightOperand.rjust(length - 1) + '    '
-    third_row += "-"*length + '    '
-    last_row += answer.rjust(length) + '    '
+    if problem != problems[-1]:
+      first_row += leftOperand.rjust(length) + '    '
+      second_row += operator + rightOperand.rjust(length - 1) + '    '
+      third_row += "-" * length + '    '
+      last_row += answer.rjust(length) + '    '
+    else:
+      first_row += leftOperand.rjust(length)
+      second_row += operator + rightOperand.rjust(length - 1)
+      third_row += "-" * length
+      last_row += answer.rjust(length)
+
   arranged_problems = first_row + "\n" + second_row + "\n" + third_row 
   arranged_problems = arranged_problems + "\n" + last_row if display_answer else arranged_problems
   return arranged_problems
