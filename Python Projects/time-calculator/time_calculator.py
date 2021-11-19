@@ -20,14 +20,21 @@ def add_time(start, duration):
     result_hours = hours + duration_hours
     if result_hours > 24:
         day = result_hours / 24
-        result_hours = result_hours % 24
+        result_hours %= 24
     
     # Calculate minutes and resolve next hour situation
     result_minutes = minutes + duration_minutes
     if result_minutes > 60:
         result_hours += result_minutes / 60
-        result_minutes = result_minutes % 60
+        result_minutes %= 60
     
-    new_time = str(result_hours).zfill(2) + ":" + str(result_minutes).zfill(2)
+    if result_hours >= 12:
+        am_or_pm = "PM"
+        if result_hours >= 13:
+            result_hours -= 12
+    else:
+        am_or_pm = "AM"
+
+    new_time = str(result_hours).zfill(2) + ":" + str(result_minutes).zfill(2) + " " + am_or_pm
     
     return new_time
