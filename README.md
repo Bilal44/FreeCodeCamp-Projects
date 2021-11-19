@@ -15,7 +15,7 @@ Projects developed for FreeCodeCamp (https://www.freecodecamp.org) online course
 
 - ## Scientific Computing with Python
     1. Arithmetic Formatter :heavy_check_mark:
-    2. Time Calculator
+    2. Time Calculator :heavy_check_mark:
     3. Budget App
     4. Polygon Area Calculator
     5. Probability Calculator
