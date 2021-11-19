@@ -14,7 +14,7 @@ Projects developed for FreeCodeCamp (https://www.freecodecamp.org) online course
 <a href="https://www.freecodecamp.org/certification/bilal44/front-end-development-libraries" title="JFront End Development Libraries Certificate"><p align="center"><img src="./Certificate blob/FCC-FE-Certificate.PNG" text="Front End Development Libraries Certificate" width="75%" /></p></a>
 
 - ## Scientific Computing with Python
-    1. Arithmetic Formatter
+    1. Arithmetic Formatter :heavy_check_mark:
     2. Time Calculator
     3. Budget App
     4. Polygon Area Calculator
