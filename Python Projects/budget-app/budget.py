@@ -31,5 +31,15 @@ class Category:
         else:
             return False
 
+    def __str__(self):
+        header = f"{self.name:*^30}\n"
+        items = ""
+        total = 0
+
+        for item in self.ledger:
+            items += f"{item['description'][0:23]:23}" + f"{item['amount']:>7.2f}\n"
+            total += item["amount"]
+        return header + items + "Total: " + str(total)
+
 def create_spend_chart(categories):
     return categories
