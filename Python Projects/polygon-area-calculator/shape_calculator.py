@@ -36,10 +36,27 @@ class Rectangle:
         return ((self.width * "*") + "\n") * self.height
     
     def get_amount_inside(self, shape):
-        return int(self.getarea / shape.get_area())
+        return int(self.get_area() / shape.get_area())
 
     def __str__(self):
         return f"Rectangle(width={self.width}, height={self.height})"
 
 
-class Square:
+#### Square class
+# The Square class should be a subclass of Rectangle. When a Square object is created, a single side length is passed in. The `__init__` method should store the side length in both the `width` and `height` attributes from the Rectangle class.
+
+# The Square class should be able to access the Rectangle class methods but should also contain a `set_side` method. If an instance of a Square is represented as a string, it should look like: `Square(side=9)`
+
+# Additionally, the `set_width` and `set_height` methods on the Square class should set both the width and height.
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super().__init__(width = length, height = length)
+
+    def set_side(self, length):
+        super().set_height(length)
+        super().set_width(length)
+    
+    def __str__(self):
+        return f"Square(side={self.width})"
+    
