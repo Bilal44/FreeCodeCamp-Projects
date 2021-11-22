@@ -27,9 +27,38 @@ class Hat:
     def draw(self, number_of_balls):
         removed_balls = []
         for i in range(number_of_balls):
-            random_ball = self.content.pop(int(random.random() * len(self.contents)))
+            random_ball = self.contents.pop(int(random.random() * len(self.contents)))
             removed_balls.append(random_ball)
         return removed_balls
 
 
-# def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+# Next, create an `experiment` function in `prob_calculator.py` (not inside the `Hat` class). This function should accept the following arguments:
+# * `hat`: A hat object containing balls that should be copied inside the function.
+# * `expected_balls`: An object indicating the exact group of balls to attempt to draw from the hat for the experiment. For example, to determine the probability of drawing 2 blue balls and 1 red ball from the hat, set `expected_balls` to `{"blue":2, "red":1}`.
+# * `num_balls_drawn`: The number of balls to draw out of the hat in each experiment.
+# * `num_experiments`: The number of experiments to perform. (The more experiments performed, the more accurate the approximate probability will be.)
+
+# The `experiment` function should return a probability. 
+
+# For example, let's say that you want to determine the probability of getting at least 2 red balls and 1 green ball when you draw
+# 5 balls from a hat containing 6 black, 4 red, and 3 green. To do this, we perform `N` experiments, count how many times `M` we
+# get at least 2 red balls and 1 green ball, and estimate the probability as `M/N`. Each experiment consists of starting with a hat
+# containing the specified balls, drawing a number of balls, and checking if we got the balls we were attempting to draw.
+
+def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+    count = 0
+
+    # Loop through creating new hats and drawing balls as indicated by num_experiments
+    for i in range(num_experiments):
+        hat_copy = copy.deepcopy(hat)
+        expected_balls_copy = copy.deepcopy(expected_balls)
+        actual_balls = hat_copy.draw(num_balls_drawn)
+
+        # Compare expected and actual results
+        for ball in actual_balls:
+            if ball in expected_balls_copy and expected_balls_copy[ball] > 0:
+                 expected_balls_copy[ball] -= 1
+
+        count += 1 if all(num == 0 for num in expected_balls_copy.values()) else 0
+    
+    return count / num_experiments
