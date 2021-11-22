@@ -17,17 +17,19 @@ class Hat:
         for k, v in kwargs.items():
             for i in range(v):
                 self.contents.append(k)
-        print(self.contents)
     
     # The `Hat` class should have a `draw` method that accepts an argument indicating the number of balls to draw from the hat.
     # This method should remove balls at random from `contents` and return those balls as a list of strings. The balls should
     # not go back into the hat during the draw, similar to an urn experiment without replacement. If the number of balls to
     # draw exceeds the available quantity, return all the balls.
 
-    def draw(self, number_of_balls):
+    def draw(self, num_of_balls):
+        if num_of_balls > len(self.contents) or len(self.contents) < 2:
+            return self.contents
+
         removed_balls = []
-        for i in range(number_of_balls):
-            random_ball = self.contents.pop(int(random.random() * len(self.contents)))
+        for i in range(num_of_balls):
+            random_ball = self.contents.pop(random.randint(0, len(self.contents) - 1))
             removed_balls.append(random_ball)
         return removed_balls
 
@@ -59,6 +61,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
             if ball in expected_balls_copy and expected_balls_copy[ball] > 0:
                  expected_balls_copy[ball] -= 1
 
+        # Increase count if actual_balls completely match the expected results
         count += 1 if all(num == 0 for num in expected_balls_copy.values()) else 0
     
     return count / num_experiments
