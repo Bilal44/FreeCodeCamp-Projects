@@ -21,3 +21,10 @@ Projects developed for FreeCodeCamp (https://www.freecodecamp.org) online course
     5. Probability Calculator :heavy_check_mark:
 
 <a href="https://www.freecodecamp.org/certification/bilal44/scientific-computing-with-python-v7" title="Scientific Computing with Python Certificate"><p align="center"><img src="./Certificate blob/FCC-PY-Certificate.PNG" text="Scientific Computing with Python Certificate" width="75%" /></p></a>
+
+- ## Data Visualization with JSON and AJAX
+    1. Visualize Data with a Bar Chart
+    2. Visualize Data with a Scatterplot Graph
+    3. Visualize Data with a Heat Map
+    4. Visualize Data with a Choropleth Map
+    5. Visualize Data with a Treemap Diagram
