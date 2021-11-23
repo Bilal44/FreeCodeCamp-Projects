@@ -11,11 +11,13 @@ Projects developed for FreeCodeCamp (https://www.freecodecamp.org) online course
     4. Build a JavaScript Calculator :heavy_check_mark: **[Live Demo](https://reactjscal.herokuapp.com)**
     5. Build a 25 + 5 Clock :heavy_check_mark: **[Live Demo](https://fcc-clock.herokuapp.com)**
 
-<a href="https://www.freecodecamp.org/certification/bilal44/front-end-development-libraries" title="JFront End Development Libraries Certificate"><p align="center"><img src="./Certificate blob/FCC-FE-Certificate.PNG" text="Front End Development Libraries Certificate" width="75%" /></p></a>
+<a href="https://www.freecodecamp.org/certification/bilal44/front-end-development-libraries" title="Front End Development Libraries Certificate"><p align="center"><img src="./Certificate blob/FCC-FE-Certificate.PNG" text="Front End Development Libraries Certificate" width="75%" /></p></a>
 
 - ## Scientific Computing with Python
     1. Arithmetic Formatter :heavy_check_mark:
     2. Time Calculator :heavy_check_mark:
-    3. Budget App
-    4. Polygon Area Calculator
-    5. Probability Calculator
+    3. Budget App :heavy_check_mark:
+    4. Polygon Area Calculator :heavy_check_mark:
+    5. Probability Calculator :heavy_check_mark:
+
+<a href="https://www.freecodecamp.org/certification/bilal44/scientific-computing-with-python-v7" title="Scientific Computing with Python Certificate"><p align="center"><img src="./Certificate blob/FCC-PY-Certificate.PNG" text="Scientific Computing with Python Certificate" width="75%" /></p></a>
