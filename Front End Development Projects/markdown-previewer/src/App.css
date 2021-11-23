@@ -1,0 +1,29 @@
+body {
+  background-color: #58B19F;
+}
+
+#preview {
+  background-color: ivory;
+  padding: 1%;
+  overflow:scroll;
+  height: 613px;
+}
+
+label {
+  color: #fff;
+  font-size: 1.5em;
+  margin: 2% auto 2% auto;
+}
+
+textarea {
+  resize: none;
+}
+
+footer {
+  color: #fff;
+  font-size: 1.4em;
+  right: 10%;
+  text-align: right;
+  position:absolute;
+  bottom: 0;
+ }

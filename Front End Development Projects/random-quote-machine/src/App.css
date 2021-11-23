@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
+}
+
+#quote-box {
+  font-family:'Roboto', sans-serif;
+  width: 50%;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.fa-quote-left {
+  font-size: 1.3em;
+  padding-bottom: 2%;
+}
+
+.fa-quote-right {
+  font-size: 1.3em;
+  padding-bottom: 2%;
+}
+
+#text {
+  font-size: 2em;
+  animation: fadeIn ease 4s;
+  -webkit-animation: fadeIn ease 4s;
+  -moz-animation: fadeIn ease 4s;
+  -o-animation: fadeIn ease 4s;
+  -ms-animation: fadeIn ease 4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+#author {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.6em;
+  text-align: right;
+  padding-top: 2%;
+  padding-right: 5%;
+}
+
+#tweet-quote {
+  float: left;
+  margin-right: 20%;
+}
+
+#new-quote {
+  float:right;
+  margin-left: 20%;
+}
+
+footer {
+  width: 50%;
+  left: 25%;
+  text-align: right;
+  position:absolute;
+  bottom: 0;
+ }
