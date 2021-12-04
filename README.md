@@ -1,5 +1,5 @@
 # FreeCodeCamp Projects
-Projects developed for FreeCodeCamp (https://www.freecodecamp.org){:target="_blank"} online course
+Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online course
 -  ## JavaScript Algorithms and Data Structures
 
 <a href="https://www.freecodecamp.org/certification/bilal44/javascript-algorithms-and-data-structures" target="_blank" title="JavaScript Algorithms and Data Structures Certificate"><p align="center"><img src="./Certificate blob/FCC-JS-Certificate.PNG" text="JavaScript Algorithms and Data Structures Certificate" width="75%" /></p></a>
