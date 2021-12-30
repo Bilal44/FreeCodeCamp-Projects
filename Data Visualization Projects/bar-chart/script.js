@@ -77,3 +77,9 @@
              .attr("text-anchor", "end")
              .text("Value (billions)");
      }
+
+ // Fetch json chart data and call PopulateChart function to visualise the data
+ d3.json("https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json", function(data) {
+  var dataset = data.data;
+   PopulateChart(dataset);
+  });
