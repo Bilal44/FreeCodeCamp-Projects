@@ -26,7 +26,46 @@
      var xAxis = d3.svg.axis().scale(xAxisScale).orient("bottom"); 
      var yAxis = d3.svg.axis().scale(yAxisScale).orient("left");
      
-    
+     var tooltip = d3.select('body').append('div')
+     .style({
+       'position': 'absolute',
+       'padding': '4px',
+       'background': '#fff',
+       'border': '1px solid #000',
+       'color':'#000'
+       });
+
+// Mouseover and tooltips
+
+function mouseoverHandler(d) {
+  tooltip.transition().style('opacity', .8)
+
+  tooltip.style({
+           'left': (d3.event.pageX + 10) + 'px',
+           'top': (d3.event.pageY + 15) + 'px'
+           })
+         .attr({
+            'id': 'tooltip',
+            'data-date' : d[0]
+           })
+         .html('<p> Date: ' + d[0] + '</p>'
+                 + '<p> Billions: ' + d[1] + '</p>')
+   
+  d3.select(this)
+     .style('opacity', .1);
+}
+
+function mouseoutHandler(d) {
+   tooltip.transition().style('opacity', 0)  
+   d3.select(this)
+     .style('opacity', 1);
+}
+
+function mouseMoving (d) {
+   tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+   d3.select(this)
+     .style('opacity', 0.7);
+}
      
 // Select svg component on index page to add chart visualisation 
  var svg= d3.select("svg")
