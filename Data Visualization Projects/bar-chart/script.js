@@ -1,4 +1,3 @@
-
  function PopulateChart(dataset){
     // Chart area
      var margin  = {top: 100, right: 550, bottom: 50, left: 550},
