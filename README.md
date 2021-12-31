@@ -11,7 +11,7 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     4. Build a JavaScript Calculator :heavy_check_mark: <b><a href="https://reactjscal.herokuapp.com" target="_blank">Heroku Live Demo</a></b>
     5. Build a 25 + 5 Clock :heavy_check_mark: <b><a href="https://fcc-clock.herokuapp.com" target="_blank">Heroku Live Demo</a></b>
 
-<a href="https://www.freecodecamp.org/certification/bilal44/front-end-development-libraries" target="_blank" title="Front End Development Libraries Certificate"><p align="center"><img src="./Certificate blob/FCC-FE-Certificate.PNG" text="Front End Development Libraries Certificate" width="75%" /></p></a>
+<a href="https://www.freecodecamp.org/certification/bilal44/front-end-development-libraries"  title="Front End Development Libraries Certificate"><p align="center"><img src="./Certificate blob/FCC-FE-Certificate.PNG" text="Front End Development Libraries Certificate" width="75%" /></p></a>
 
 - ## Scientific Computing with Python
     1. Arithmetic Formatter :heavy_check_mark:
@@ -22,8 +22,8 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 
 <a href="https://www.freecodecamp.org/certification/bilal44/scientific-computing-with-python-v7" target="_blank" title="Scientific Computing with Python Certificate"><p align="center"><img src="./Certificate blob/FCC-PY-Certificate.PNG" text="Scientific Computing with Python Certificate" width="75%" /></p></a>
 
-- ## Data Visualization with JSON and AJAX
-    1. Visualize Data with a Bar Chart
+- ## Data Visualization with D3, JSON and AJAX
+    1. Visualize Data with a Bar Chart :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/full/RwLMGBw" target="_blank">CodePen Live Demo</a></b>
     2. Visualize Data with a Scatterplot Graph
     3. Visualize Data with a Heat Map
     4. Visualize Data with a Choropleth Map
