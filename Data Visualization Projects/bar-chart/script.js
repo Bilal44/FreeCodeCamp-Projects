@@ -1,14 +1,14 @@
 
  function PopulateChart(dataset){
     // Chart area
-     var margin  = {top: 100, right: 350, bottom: 50, left: 350},
-         width   = 1200,
-         height  = 600
+     var margin  = {top: 100, right: 550, bottom: 50, left: 550},
+         width   = 800,
+         height  = 400
    
      // X and Y axis
-     var minDate = dataset[0][0].substr(0,4);
+     var minDate = dataset[0][0];
          minDate = new Date(minDate);
-     var maxDate = dataset[dataset.length - 1][0].substr(0,4);
+     var maxDate = dataset[dataset.length - 1][0];
          maxDate = new Date(maxDate);
     
     var xAxisScale = d3.time.scale()
@@ -36,7 +36,6 @@
        });
 
 // Mouseover and tooltips
-
 function mouseoverHandler(d) {
   tooltip.transition().style('opacity', .8)
 
@@ -49,7 +48,7 @@ function mouseoverHandler(d) {
             'data-date' : d[0]
            })
          .html('<p> Date: ' + d[0] + '</p>'
-                 + '<p> Billions: ' + d[1] + '</p>')
+                 + '<p> Billions: ' + d[1].toFixed(2) + '</p>')
    
   d3.select(this)
      .style('opacity', .1);
@@ -89,9 +88,9 @@ function mouseMoving (d) {
               "data-date": function(d) { return d[0]; },
               "data-gdp": function(d) { return d[1]; }
      })
-         .on('mouseover', mouseoverHandler)
-           .on("mousemove",mouseMoving)
-           .on("mouseout", mouseoutHandler);
+        .on('mouseover', mouseoverHandler)
+        .on("mousemove",mouseMoving)
+        .on("mouseout", mouseoutHandler);
        
         // Append x axis data
         svg.append("g")
