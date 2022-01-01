@@ -15,6 +15,7 @@ function populateScatterGraph(url){
         .tickFormat(d3.format("d"));
 
     var yAxis = d3.axisLeft(y)
+        .ticks(d3.timeSecond.every(10))
         .tickFormat(d3.timeFormat("%M:%S"));
 }
 
