@@ -42,10 +42,12 @@ function populateScatterGraph(url){
     // Populate the scatterplot graph from remote json data file
     d3.json(url)
         .then((data) => {
-            var fastest = d3.min(data.map((item) => { return timeParser(item.Time); }));
+            var fastest = d3.min(data.map((item) => { return timeParser(item.Time) }));
             var slowest = d3.max(data.map((item) => { return timeParser(item.Time); }));
+            fastest.setSeconds(fastest.getSeconds() - 5);
+            slowest.setSeconds(slowest.getSeconds() + 5)
             
-             x.domain([d3.min(data, (d) => { return d.Year; }), d3.max(data, (d) => { return d.Year; })]);
+             x.domain([d3.min(data, (d) => { return d.Year - 0.5; }), d3.max(data, (d) => { return d.Year + 0.5; })]);
              y.domain([slowest, fastest]);
     
              svg.append("g")
