@@ -17,6 +17,11 @@ function populateScatterGraph(url){
     var yAxis = d3.axisLeft(y)
         .ticks(d3.timeSecond.every(10))
         .tickFormat(d3.timeFormat("%M:%S"));
+
+    // Colouring scheme for chart data points depending on the cyclist's doping allegation status
+    function dopingColour(value) {
+        return value !== "" ? "orange" : "lightgreen";
+    }
       
     // Set up Scatterplot graph essential elements and configurations
     var svg = d3.select("svg")
@@ -77,7 +82,7 @@ function populateScatterGraph(url){
                  .attr("data-xvalue", (d) => { return d.Year; })
                  .attr("data-yvalue", (d) => { return timeParser(d.Time); })
                  .attr("r", 5)
-                 .attr("fill", (d) => { return d.Doping; })
+                 .attr("fill", (d) => { return dopingColour(d.Doping); })
             
              // Add the cyclist's name next to their circle on the chart
              cyclist.append("text")
