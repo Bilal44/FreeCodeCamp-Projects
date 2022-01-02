@@ -17,6 +17,22 @@ function populateScatterGraph(url){
     var yAxis = d3.axisLeft(y)
         .ticks(d3.timeSecond.every(10))
         .tickFormat(d3.timeFormat("%M:%S"));
+      
+    // Set up Scatterplot graph essential elements and configurations
+    var svg = d3.select("svg")
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("width", width + margin.left + margin.right);
+        
+    svg.append("rect")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("fill", "white")
+            .attr("fill-opacity", 0.8);
+
+    svg = svg.append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 }
 
 var draw = () => {
