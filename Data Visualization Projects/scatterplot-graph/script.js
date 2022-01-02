@@ -88,7 +88,32 @@ function populateScatterGraph(url){
              cyclist.append("text")
                  .attr("x", (d) => { return x(d.Year) + 5; })
                  .attr("y", (d) => { return y(timeParser(d.Time)) + 7; })
-                 .text((d) => { return d.Name; }); 
+                 .text((d) => { return d.Name; });
+
+                             
+             // Add legend for interpreting the chart
+             var legend =  svg.append("g").attr("id", "legend");
+             var isDoped = legend.append("g")
+             .attr("transform", "translate(" + (width - 175) + "," + (height - 100) + ")")
+             .append("text") 
+               .attr("x", 10)
+               .attr("y", 5)
+               .attr("fill", "orange")
+               .text("⦿ ")
+               .append("tspan")
+               .attr("fill", "black")
+               .text("Doping allegation(s)");
+        
+            var isNotDoped = legend.append("g")
+             .attr("transform", "translate(" + (width - 175) + "," + (height - 80) + ")")
+             .append("text")
+               .attr("x", 10)
+               .attr("y", 5)
+               .attr("fill", "lightgreen")
+               .text("⦿ ")
+               .append("tspan")
+               .attr("fill", "black")
+               .text("No doping allegations");    
     });
 }
 
