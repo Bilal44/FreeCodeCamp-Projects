@@ -48,6 +48,10 @@ function populateScatterGraph(url){
         "Year: " + d.Year + "<br/><br/>" + 
         "Doping: " + d.Doping + "</b></span>");
     }
+    
+    function hideToolTip() {
+        tooltip.style("display", "none");
+    }
 
     // Set up Scatterplot graph essential elements and configurations
     var svg = d3.select("svg")
@@ -111,7 +115,8 @@ function populateScatterGraph(url){
                  .attr("data-yvalue", (d) => { return timeParser(d.Time); })
                  .attr("r", 5)
                  .attr("fill", (d) => { return dopingColour(d.Doping); })
-                 .on("mouseover", showToolTip);
+                 .on("mouseover", showToolTip)
+                 .on("mouseout", hideToolTip);
             
              // Add the cyclist's name next to their circle on the chart
              cyclist.append("text")
