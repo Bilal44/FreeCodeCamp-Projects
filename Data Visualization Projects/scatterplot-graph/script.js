@@ -22,7 +22,34 @@ function populateScatterGraph(url){
     function dopingColour(value) {
         return value !== "" ? "orange" : "lightgreen";
     }
-      
+
+    // Tooltip functions
+    var tooltip = d3.select("body").append("div")
+    .attr("id", "tooltip");
+
+    function showToolTip(event, d) {
+        tooltip.style({
+            "height": "125px",
+            "width": "200px",
+            "opacity": 0.9
+        });
+        var circle = d3.pointer(event); 
+        var tippadding = 5, tipsize = { 
+            dx: parseInt(tooltip.style("width")), 
+            dy: parseInt(tooltip.style("height")) 
+        };
+
+        tooltip.style({
+            "top": (d3.pointer(event)[0] - tipsize.dy - 5) + "px",
+            "left": (d3.pointer(event)[0] - tipsize.dx - 5) + "px"
+        });
+
+        tooltip.html("<span><b>" + d.Name + ": " + d.Nationality + "<br/>" + 
+        "Place: " + d.Place + " | Time: " + d.Time + "<br/>" + 
+        "Year: " + d.Year + "<br/><br/>" + 
+        "Doping: " + d.Doping + "</b></span>");
+    }
+
     // Set up Scatterplot graph essential elements and configurations
     var svg = d3.select("svg")
         .attr("height", height + margin.top + margin.bottom)
@@ -85,6 +112,7 @@ function populateScatterGraph(url){
                  .attr("data-yvalue", (d) => { return timeParser(d.Time); })
                  .attr("r", 5)
                  .attr("fill", (d) => { return dopingColour(d.Doping); })
+                 .on("mouseover", showToolTip);
             
              // Add the cyclist's name next to their circle on the chart
              cyclist.append("text")
