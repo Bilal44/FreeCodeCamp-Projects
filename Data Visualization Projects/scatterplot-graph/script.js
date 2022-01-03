@@ -83,21 +83,21 @@ function populateScatterGraph(url){
              svg.append("g")
                  .attr("id", "x-axis")
                  .attr("transform", "translate(0," + height + ")")
-                 .call(xAxis)
-               .append("text")
-                 .attr("transform", "translate(" + width + ",-30)")
-                 .attr("dy", "1.8em")
-                 .attr("text-anchor", "end")
-                 .text("Race time for 13.8km");
+                 .call(xAxis);
+             svg.append("text")
+                 .attr("transform", "translate(" +  (width - 150) + "," + (height + 40) + ")")
+                 .style("font-size", 18)
+                 .text("Year of Race");
             
              svg.append("g")
                  .attr("id", "y-axis")
-                 .call(yAxis)
-               .append("text")
+                 .call(yAxis);
+             svg.append("text")
                  .attr("transform", "rotate(-90)")
-                 .attr("dy", "-0.8em")
-                 .attr("text-anchor", "end")
-                 .text("Position");
+                 .attr("x", -160)
+                 .attr("y", -44)
+                 .style("font-size", 18)
+                 .text("Time in Minutes");
             
             // Add inidividual data entities (cyclist) as a circle on the chart
              var cyclist = svg.selectAll(".cyclist")
