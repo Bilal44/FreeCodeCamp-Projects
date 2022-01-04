@@ -25,3 +25,8 @@ footer {
     width: 200px;
     display: none;
 }
+
+.dot {
+    stroke: black;
+    opacity: 0.7;
+}

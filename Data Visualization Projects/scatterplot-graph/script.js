@@ -1,7 +1,7 @@
 function populateScatterGraph(url){
     // Chart area
     var margin = { top: 60, left: 60, bottom: 60, right: 90 } 
-    var height = 480, width = 780;
+    var height = 720, width = 1080;
     
     // Time parser for race times
     var timeParser = d3.timeParse("%M:%S");
@@ -102,7 +102,7 @@ function populateScatterGraph(url){
                  .attr("cy", (d) => { return y(timeParser(d.Time)); })
                  .attr("data-xvalue", (d) => { return d.Year; })
                  .attr("data-yvalue", (d) => { return timeParser(d.Time); })
-                 .attr("r", 10)
+                 .attr("r", 7.5)
                  .attr("fill", (d) => { return dopingColour(d.Doping); })
                  .on("mouseover", showToolTip)
                  .on("mouseout", hideToolTip);
