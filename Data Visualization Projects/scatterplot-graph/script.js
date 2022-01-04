@@ -102,16 +102,10 @@ function populateScatterGraph(url){
                  .attr("cy", (d) => { return y(timeParser(d.Time)); })
                  .attr("data-xvalue", (d) => { return d.Year; })
                  .attr("data-yvalue", (d) => { return timeParser(d.Time); })
-                 .attr("r", 5)
+                 .attr("r", 10)
                  .attr("fill", (d) => { return dopingColour(d.Doping); })
                  .on("mouseover", showToolTip)
                  .on("mouseout", hideToolTip);
-            
-             // Add the cyclist's name next to their circle on the chart
-             cyclist.append("text")
-                 .attr("x", (d) => { return x(d.Year) + 5; })
-                 .attr("y", (d) => { return y(timeParser(d.Time)) + 7; })
-                 .text((d) => { return d.Name; });
 
                              
              // Add legend for interpreting the chart
@@ -125,7 +119,7 @@ function populateScatterGraph(url){
                .text("⦿ ")
                .append("tspan")
                .attr("fill", "black")
-               .text("Doping allegation(s)");
+               .text("Doping allegations");
         
             var isNotDoped = legend.append("g")
              .attr("transform", "translate(" + (width - 175) + "," + (height - 80) + ")")
