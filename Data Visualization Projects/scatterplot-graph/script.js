@@ -25,11 +25,7 @@ function populateScatterGraph(url){
 
     // Tooltip functions
     var tooltip = d3.select("body").append("div")
-                    .attr("id", "tooltip")
-                    .style("position", "absolute")
-                    .style("height", "125px")
-                    .style("width", "200px")
-                    .style("opacity", 0.9);
+                    .attr("id", "tooltip");
 
     function showToolTip(event, d) {
         tooltip.style("display", "block");

@@ -1,9 +1,27 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .bar-chart {
     background-color: #C7D9D9;
-    }
+}
 
 footer {
     float: right;
     padding-right: 29%;
     padding-top: 5vh;
+}
+
+#tooltip {
+    font-style: normal;
+    font-size: smaller;
+    background-color: lightcyan;
+    border-radius: 10%;
+    border:cyan dotted 2px;
+    padding: 0.5em;
+    opacity: 0.7;
+    position: absolute;
+    height: 125px;
+    width: 200px;
+    display: none;
 }
