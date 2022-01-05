@@ -1,6 +1,6 @@
 function populateScatterGraph(url){
     // Chart area
-    var margin = { top: 60, left: 60, bottom: 60, right: 90 } 
+    var margin = { top: 50, left: 420, bottom: 50, right: 420 } 
     var height = 720, width = 1080;
     
     // Time parser for race times
@@ -74,8 +74,8 @@ function populateScatterGraph(url){
                  .attr("transform", "translate(0," + height + ")")
                  .call(xAxis);
              svg.append("text")
-                 .attr("transform", "translate(" +  (width - 150) + "," + (height + 40) + ")")
-                 .style("font-size", 18)
+                 .attr("transform", "translate(" +  (width - 130) + "," + (height + 40) + ")")
+                 .style("font-size", 20)
                  .text("Year of Race");
             
              svg.append("g")
@@ -85,7 +85,7 @@ function populateScatterGraph(url){
                  .attr("transform", "rotate(-90)")
                  .attr("x", -160)
                  .attr("y", -44)
-                 .style("font-size", 18)
+                 .style("font-size", 20)
                  .text("Time in Minutes");
             
             // Add inidividual data entities (cyclist) as a circle on the chart
@@ -111,7 +111,7 @@ function populateScatterGraph(url){
              // Add legend for interpreting the chart
              var legend =  svg.append("g").attr("id", "legend");
              var isDoped = legend.append("g")
-             .attr("transform", "translate(" + (width - 175) + "," + (height - 100) + ")")
+             .attr("transform", "translate(" + (width - 200) + "," + (height - 100) + ")")
              .append("text") 
                .attr("x", 10)
                .attr("y", 5)
@@ -122,7 +122,7 @@ function populateScatterGraph(url){
                .text("Doping allegations");
         
             var isNotDoped = legend.append("g")
-             .attr("transform", "translate(" + (width - 175) + "," + (height - 80) + ")")
+             .attr("transform", "translate(" + (width - 200) + "," + (height - 80) + ")")
              .append("text")
                .attr("x", 10)
                .attr("y", 5)
