@@ -24,7 +24,7 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 
 - ## Data Visualization with D3, JSON and AJAX
     1. Visualize Data with a Bar Chart :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/full/RwLMGBw" target="_blank">CodePen Live Demo</a></b>
-    2. Visualize Data with a Scatterplot Graph
+    2. Visualize Data with a Scatterplot Graph :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/full/WNZzYGP" target="_blank">CodePen Live Demo</a></b>
     3. Visualize Data with a Heat Map
     4. Visualize Data with a Choropleth Map
     5. Visualize Data with a Treemap Diagram
