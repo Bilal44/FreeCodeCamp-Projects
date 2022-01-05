@@ -1,0 +1,9 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer {
+    float: right;
+    padding-right: 21%;
+    padding-top: 2vh;
+}
