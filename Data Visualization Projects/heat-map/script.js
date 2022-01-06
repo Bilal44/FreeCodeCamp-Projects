@@ -16,3 +16,9 @@ var canvas = d3.select('svg').attr({
 var group = canvas.append('g').attr({
   transform: "translate(" + margin.left + "," + margin.top + ")"
 });
+
+// Define X and Y axis scaling
+var tooltip = d3.select('.tooltip');
+var xScale = d3.time.scale().range([0,width]);
+var yScale = d3.scale.ordinal().domain(months).rangeBands([0,height]);
+var colourScale = d3.scale.quantize().range(colour);
