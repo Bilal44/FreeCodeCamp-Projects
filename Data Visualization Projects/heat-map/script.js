@@ -22,3 +22,14 @@ var tooltip = d3.select('.tooltip');
 var xScale = d3.time.scale().range([0,width]);
 var yScale = d3.scale.ordinal().domain(months).rangeBands([0,height]);
 var colourScale = d3.scale.quantize().range(colour);
+
+// Fetch data from remote JSON file
+d3.json(url, function(data){
+  data = data.monthlyVariance;
+  
+  // Extract and map JSON data
+  data.map(function(d){
+    d.month = months[d.month-1];
+    d.year = d3.time.format("%Y").parse(d.year.toString());
+  })
+});
