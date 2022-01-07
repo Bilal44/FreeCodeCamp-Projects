@@ -65,6 +65,9 @@ d3.json(url, function(data){
     }
     }).append('rect').attr({
     class: "cell",
+    "data-month": (d) => { return months.indexOf(d.month); },
+    "data-year": (d) => { return d.year.getFullYear(); },
+    "data-temp": (d) => { return d.variance; },
     width: barWidth,
     height: yScale.rangeBand()
   }).style({
