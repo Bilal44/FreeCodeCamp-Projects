@@ -47,4 +47,29 @@ d3.json(url, function(data){
   
   var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
   var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(12);
+  
+  // Add a g element and append pre-configured axes to plot a heat map from extracted JSON data
+  group.append('g').attr({
+    class: "xAxis",
+    id: "x-axis",
+    transform: "translate(0," + (height) + ")"
+  }).call(xAxis);
+  group.append('g').attr({
+    class: "yAxis",
+    id: "y-axis",
+    transform: "translate(0,0)",
+  }).call(yAxis);
+  group.selectAll('g').data(data).enter().append('g').attr({
+    transform: function(data){
+      return "translate(" + xScale(data.year) + "," + yScale(data.month) +  ")";
+    }
+    }).append('rect').attr({
+    class: "cell",
+    width: barWidth,
+    height: yScale.rangeBand()
+  }).style({
+    fill: function(data){
+     return colourScale(data.variance);
+    }
+  });
 });
