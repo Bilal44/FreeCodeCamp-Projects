@@ -32,4 +32,19 @@ d3.json(url, function(data){
     d.month = months[d.month-1];
     d.year = d3.time.format("%Y").parse(d.year.toString());
   })
+  
+  // Heat map scaling configurations
+  xScale.domain(d3.extent(data,function(data){
+    return data.year;
+  }));
+  
+  colourScale.domain(d3.extent(data,function(d){
+    return d.variance;
+  }));
+  
+  var barWidth = width / (data.length / 12)
+  var barHeight = height / 12;
+  
+  var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+  var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(12);
 });
