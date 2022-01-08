@@ -65,9 +65,9 @@ d3.json(url, function(data){
     }
     }).append('rect').attr({
     class: "cell",
-    "data-month": (d) => { return months.indexOf(d.month); },
-    "data-year": (d) => { return d.year.getFullYear(); },
-    "data-temp": (d) => { return d.variance; },
+    "data-month": (d) => months.indexOf(d.month),
+    "data-year": (d) => d.year.getFullYear(),
+    "data-temp": (d) => d.variance,
     width: barWidth,
     height: yScale.rangeBand()
   }).style({
@@ -85,4 +85,24 @@ d3.json(url, function(data){
   }).on("mouseout",function(d){
     tooltip.transition().duration(100).style("opacity",0);
   });
-});
+
+//   // Add a legend for the color values.
+//   const legend = d3.select("#legend")
+//   .data(data.concat(colourScale(data.variance)), data.year);
+
+// const legendEntries = legend.enter().append("g")
+//       .attr("id", "legend");
+
+//   legendEntries.append("rect")
+//     .attr("x", (d,i)  => 400 * i)
+//     .attr("y", 300)
+//     .attr("width", 400)
+//     .attr("height", 5)
+//     .style("fill", (d, i) => colour[i]);
+
+//   legendEntries.append("text")
+//     .attr("class", "mono")
+//     .text((d) => "≥ " + Math.round(d.variance+8.66))
+//     .attr("x", (d, i) => 100 * i)
+//     .attr("y", 300 + 4);
+ });
