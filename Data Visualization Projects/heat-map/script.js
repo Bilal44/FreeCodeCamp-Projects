@@ -18,7 +18,7 @@ var group = canvas.append('g').attr({
 });
 
 // Define X and Y axis scaling
-var tooltip = d3.select('.tooltip');
+var tooltip = d3.select('#tooltip');
 var xScale = d3.time.scale().range([0,width]);
 var yScale = d3.scale.ordinal().domain(months).rangeBands([0,height]);
 var colourScale = d3.scale.quantize().range(colour);
@@ -74,5 +74,15 @@ d3.json(url, function(data){
     fill: function(data){
      return colourScale(data.variance);
     }
+  }).on("mouseover",function(d){
+    tooltip.transition().duration(10)
+        .attr("data-year", d.year.getFullYear())
+        .style("opacity",0.8).style({
+            left: d3.event.pageX + "px",
+            top: d3.event.pageY + "px"
+        });
+    tooltip.html(d.month + ", " + d.year.getFullYear()+ "<br/>" + (8.66 + d.variance).toFixed(2) + "°C<br/>" + d.variance.toFixed(2) + "°C");
+  }).on("mouseout",function(d){
+    tooltip.transition().duration(100).style("opacity",0);
   });
 });
