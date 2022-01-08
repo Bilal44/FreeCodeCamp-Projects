@@ -7,3 +7,16 @@ footer {
     padding-right: 21%;
     padding-top: 2vh;
 }
+
+#tooltip {
+    background-color: dimgray;
+    border: 1px solid black;
+    border-radius: 10%;
+    width: 140px;
+    opacity: 0;
+    color: white;
+    position: absolute;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+  }
