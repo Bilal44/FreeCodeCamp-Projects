@@ -1,7 +1,7 @@
 // Chart area
 var height = 500, width = 1000,
     margin = {
-      left: 120, right: 20, top: 20, bottom: 70
+      left: 430, right: 20, top: 20, bottom: 70
     },
     url = "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/global-temperature.json",
     months = ["January","February","March","April","May","June","July","August","September","October","November","December"],
@@ -19,7 +19,7 @@ var group = canvas.append('g').attr({
 
 // Define X and Y axis scaling
 var tooltip = d3.select('#tooltip');
-var xScale = d3.time.scale().range([0,width]);
+var xScale = d3.time.scale().range([-6,width]);
 var yScale = d3.scale.ordinal().domain(months).rangeBands([0,height]);
 var colourScale = d3.scale.quantize().range(colour);
 
