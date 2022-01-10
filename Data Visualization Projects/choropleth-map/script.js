@@ -42,6 +42,24 @@ async function start() {
     .attr('d', path)
     .attr('data-fips', d => d.id)
     .attr('data-education', d => educations.find(edu => edu.fips === d.id).bachelorsOrHigher)
+    .on('mouseover', (d, i) => {
+      const { coordinates } = d.geometry;
+      const [x, y] = coordinates[0][0];
+
+      const education = educations.find(edu => edu.fips === d.id);
+
+      tooltip.style.display='block';
+      tooltip.style.left = x - 50 + 'px';
+      tooltip.style.top = y - 50 + 'px';
+      tooltip.setAttribute('data-education', education.bachelorsOrHigher);
+
+      tooltip.innerHTML = `
+        <p>${education.area_name} - ${education.state}</p>
+        <p>${education.bachelorsOrHigher}%</p>
+      `;
+  }).on('mouseout', () => {
+    tooltip.style.display='none';
+  });
 }
 
 start();
