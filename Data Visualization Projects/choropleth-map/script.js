@@ -27,6 +27,21 @@ async function start() {
   for(let i=minEdu; i<=maxEdu; i+=step) {
     colours.push(i);
   }
+  
+  const svg = d3.select('svg')
+    .attr('width', width)
+    .attr('height', height);
+  
+  svg.append('g')
+    .selectAll('path')
+    .data(data)
+    .enter()
+    .append('path')
+    .attr('class', 'county')
+    .attr('fill', d => coloursScale(educations.find(edu => edu.fips === d.id).bachelorsOrHigher))
+    .attr('d', path)
+    .attr('data-fips', d => d.id)
+    .attr('data-education', d => educations.find(edu => edu.fips === d.id).bachelorsOrHigher)
 }
 
 start();
