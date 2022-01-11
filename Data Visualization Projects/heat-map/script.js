@@ -1,11 +1,11 @@
 // Chart area
-var height = 500, width = 1000,
+var height = 700, width = 1400,
     margin = {
-      left: 430, right: 20, top: 20, bottom: 70
+      left: 260, right: 20, top: 20, bottom: 70
     },
     url = "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/global-temperature.json",
     months = ["January","February","March","April","May","June","July","August","September","October","November","December"],
-    colour = ["#ef5350","#EC407A","#AB47BC","#7E57C2","#5C6BC0","#42A5F5","#26C6DA","#26A69A","#D4E157","#FFEE58","#FFA726"];
+    colours = ["#183B72", "#5D769C", "#53ADC5", "#6DA3AB", "#88CCD6", "#B8E0E6", "#CFEBEF", "#EEF9CA", "#FFD31A", "#FBC34D", "#FF5D57", "#FF4842", "#ED3539", "#EB1C21"];
 
 // Heat map canvas
 var canvas = d3.select('svg').attr({
@@ -19,9 +19,9 @@ var group = canvas.append('g').attr({
 
 // Define X and Y axis scaling
 var tooltip = d3.select('#tooltip');
-var xScale = d3.time.scale().range([-6,width]);
+var xScale = d3.time.scale().range([-11,width]);
 var yScale = d3.scale.ordinal().domain(months).rangeBands([0,height]);
-var colourScale = d3.scale.quantize().range(colour);
+var colourScale = d3.scale.quantize().range(colours);
 
 // Fetch data from remote JSON file
 d3.json(url, function(data){
@@ -81,28 +81,8 @@ d3.json(url, function(data){
             left: d3.event.pageX + "px",
             top: d3.event.pageY + "px"
         });
-    tooltip.html(d.month + ", " + d.year.getFullYear()+ "<br/>" + (8.66 + d.variance).toFixed(2) + "°C<br/>" + d.variance.toFixed(2) + "°C");
+    tooltip.html(d.month + ", " + d.year.getFullYear()+ "<br/>" + (8.66 + d.variance).toFixed(2) + "°C<br/>" + d3.format("+.2f")(d.variance.toFixed(2)) + "°C");
   }).on("mouseout",function(d){
     tooltip.transition().duration(100).style("opacity",0);
   });
-
-//   // Add a legend for the color values.
-//   const legend = d3.select("#legend")
-//   .data(data.concat(colourScale(data.variance)), data.year);
-
-// const legendEntries = legend.enter().append("g")
-//       .attr("id", "legend");
-
-//   legendEntries.append("rect")
-//     .attr("x", (d,i)  => 400 * i)
-//     .attr("y", 300)
-//     .attr("width", 400)
-//     .attr("height", 5)
-//     .style("fill", (d, i) => colour[i]);
-
-//   legendEntries.append("text")
-//     .attr("class", "mono")
-//     .text((d) => "≥ " + Math.round(d.variance+8.66))
-//     .attr("x", (d, i) => 100 * i)
-//     .attr("y", 300 + 4);
  });
