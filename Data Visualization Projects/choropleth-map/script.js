@@ -60,6 +60,28 @@ async function start() {
   }).on('mouseout', () => {
     tooltip.style.display='none';
   });
+
+  // Graph legend
+  const legendWidth = 200;
+  const legendHeight = 30;
+
+  const legendRectWidth = legendWidth / colours.length;
+  const legend = d3.select('body')
+    .append('svg')
+    .attr('id', 'legend')
+    .attr('class', 'legend')
+    .attr('width', legendWidth)
+    .attr('height', legendHeight)
+   
+  legend.selectAll('rect')
+    .data(colours)
+    .enter()
+    .append('rect')
+    .attr('x', (_, i) => i * legendRectWidth)
+    .attr('y', 0)
+    .attr('width', legendRectWidth)
+    .attr('height', legendHeight)
+    .attr('fill', c => coloursScale(c))
 }
 
 start();
