@@ -30,7 +30,8 @@ async function start() {
   
   const svg = d3.select('svg')
     .attr('width', width)
-    .attr('height', height);
+    .attr('height', height)
+    .style('margin-left', '450');
   
   svg.append('g')
     .selectAll('path')
@@ -49,13 +50,13 @@ async function start() {
       const education = educations.find(edu => edu.fips === d.id);
 
       tooltip.style.display='block';
-      tooltip.style.left = x - 50 + 'px';
-      tooltip.style.top = y - 50 + 'px';
+      tooltip.style.left = x + 500 + 'px';
+      tooltip.style.top = y + 100 + 'px';
       tooltip.setAttribute('data-education', education.bachelorsOrHigher);
 
       tooltip.innerHTML = `
         <p>${education.area_name} - ${education.state}</p>
-        <p>${education.bachelorsOrHigher}%</p>
+        <p>${education.bachelorsOrHigher.toFixed(2)}%</p>
       `;
   }).on('mouseout', () => {
     tooltip.style.display='none';
@@ -69,9 +70,10 @@ async function start() {
   const legend = d3.select('body')
     .append('svg')
     .attr('id', 'legend')
-    .attr('class', 'legend')
+    .style('margin-top', "10px")
     .attr('width', legendWidth)
     .attr('height', legendHeight)
+    .style('margin-left', '400');
    
   legend.selectAll('rect')
     .data(colours)
