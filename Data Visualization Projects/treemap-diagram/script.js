@@ -25,6 +25,8 @@ async function start() {
     .data(root.leaves())
     .enter().append('g')
     .attr('transform', d => `translate(${d.x0}, ${d.y0})`);
+
+  const tooltip = document.getElementById('tooltip');
   
   const tile = cell.append('rect')
     .attr('class', 'tile')
@@ -34,6 +36,19 @@ async function start() {
     .attr('width', d => d.x1 - d.x0)
     .attr('height', d => d.y1 - d.y0)
     .attr('fill', d => colours(d.data.category))
+    .on('mousemove', (event, d) => {
+      const { name, category, value } = d.data;
+      tooltip.style.display= 'block';
+      tooltip.style.left = (event.pageX + 20) + 'px';
+      tooltip.style.top = (event.pageY) + 'px';
+      tooltip.setAttribute('data-value', value);
+
+      tooltip.innerHTML = `<p>${name}</p>
+      <p><strong>Genre:</strong> ${category}</p>
+      <p><strong>Sales:</strong> ${value}</p>`;})
+      .on('mouseout', () => {
+        tooltip.style.display= 'none';
+    });
 
   cell.append('text')
     .selectAll('tspan')
@@ -43,6 +58,6 @@ async function start() {
     .attr('x', 1)
     .attr('y', (d, i) => 10 + i * 9)
     .text(d => d)
-}
+  }
 
 start();
