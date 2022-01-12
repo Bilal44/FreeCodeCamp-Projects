@@ -5,7 +5,7 @@ async function start() {
   const width = 960;
   const height = 600;
   
-  const colour = d3.scaleOrdinal(d3.schemeCategory10);
+  const colours = d3.scaleOrdinal(d3.schemeCategory10);
   
   const svg = d3.select('svg')
     .attr('width', width)
@@ -20,6 +20,29 @@ async function start() {
     .sum(d => d.value)
   
   treemap(root);
+  
+  const cell = svg.selectAll('g')
+    .data(root.leaves())
+    .enter().append('g')
+    .attr('transform', d => `translate(${d.x0}, ${d.y0})`);
+  
+  const tile = cell.append('rect')
+    .attr('class', 'tile')
+    .attr('data-name', d => d.data.name)
+    .attr('data-category', d => d.data.category)
+    .attr('data-value', d => d.data.value)
+    .attr('width', d => d.x1 - d.x0)
+    .attr('height', d => d.y1 - d.y0)
+    .attr('fill', d => colours(d.data.category))
+
+  cell.append('text')
+    .selectAll('tspan')
+    .data(d => d.data.name.split(/(?=[A-Z][^A-Z])/g))
+    .enter().append('tspan')
+    .attr('style', 'font-size: 10px')
+    .attr('x', 1)
+    .attr('y', (d, i) => 10 + i * 9)
+    .text(d => d)
 }
 
 start();
