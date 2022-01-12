@@ -85,4 +85,27 @@ d3.json(url, function(data){
   }).on("mouseout",function(d){
     tooltip.transition().duration(100).style("opacity",0);
   });
+
+// Create heat map legend
+const legendWidth = 200;
+const legendHeight = 30;
+
+const legendRectWidth = legendWidth / colours.length;
+const legend = d3.select('body')
+  .append('svg')
+  .attr('id', 'legend')
+  .style('margin-top', "10px")
+  .attr('width', legendWidth)
+  .attr('height', legendHeight)
+  .style('margin-left', '250');
+ 
+legend.selectAll('rect')
+  .data(colours)
+  .enter()
+  .append('rect')
+  .attr('x', (_, i) => i * legendRectWidth)
+  .attr('y', 0)
+  .attr('width', legendRectWidth)
+  .attr('height', legendHeight)
+  .attr('fill', (d, i) => colours[i])
  });
