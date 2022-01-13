@@ -27,4 +27,4 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     2. Visualize Data with a Scatterplot Graph :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/full/WNZzYGP" target="_blank">CodePen Live Demo</a></b>
     3. Visualize Data with a Heat Map Graph :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/full/yLzKrPb" target="_blank">CodePen Live Demo</a></b>
     4. Visualize Data with a Choropleth Map :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/full/poWQzLj" target="_blank">CodePen Live Demo</a></b>
-    5. Visualize Data with a Treemap Diagram
+    5. Visualize Data with a Treemap Diagram :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/pen/LYzXMRP" target="_blank">CodePen Live Demo</a></b>
