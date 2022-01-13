@@ -58,6 +58,41 @@ async function start() {
     .attr('x', 1)
     .attr('y', (d, i) => 10 + i * 9)
     .text(d => d)
-  }
+
+  const categories = root.leaves().map(n => n.data.category).filter((item, idx, arr) => arr.indexOf(item) === idx);
+
+  // Insert treemap category legend
+  const rectSize = 21;
+  const legendWidth = 200;
+  const legendHeight = (rectSize + 2) * categories.length;
+  
+  const legend = d3.select('body')
+    .append('svg')
+    .attr('id', 'legend')
+    .attr('width', legendWidth)
+    .attr('height', legendHeight)
+    .style('margin-left', 417)
+   
+  legend.selectAll('rect')
+    .data(categories)
+    .enter()
+    .append('rect')
+    .attr('class', 'legend-item')
+    .attr('fill', d => colours(d))
+    .attr('x', rectSize / 2)
+    .attr('y', (_, i) => i * (rectSize + 1) + 10)
+    .attr('width', rectSize)
+    .attr('height', rectSize)
+   
+   legend.append('g')
+      .selectAll('text')
+      .data(categories)
+      .enter()
+      .append('text')
+      .attr('fill', 'black')
+      .attr('x', rectSize * 2)
+      .attr('y', (_, i) => i * (rectSize + 1) + 25)
+      .text(d => d)
+}
 
 start();
