@@ -43,9 +43,17 @@ async function start() {
       tooltip.style.top = (event.pageY) + 'px';
       tooltip.setAttribute('data-value', value);
 
+      // Format sales figure to USD whole numbers
+      var currencyFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+
       tooltip.innerHTML = `<p>${name}</p>
       <p><strong>Genre:</strong> ${category}</p>
-      <p><strong>Sales:</strong> ${value}</p>`;})
+      <p><strong>Sales:</strong> ${currencyFormatter.format(value)} USD</p>`;})
       .on('mouseout', () => {
         tooltip.style.display= 'none';
     });
