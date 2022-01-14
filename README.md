@@ -1,5 +1,16 @@
 # FreeCodeCamp Projects
 Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online course
+
+- ## FCC Microservice API Projects
+
+    1. Timestamp Microservice :heavy_check_mark:
+    2. Request Header Parser Microservice :heavy_check_mark:
+    3. URL Shortener Microservice :heavy_check_mark:
+    4. Exercise Tracker (Full Stack) :heavy_check_mark:
+    5. File Metadata Microservice :heavy_check_mark:
+
+<a href="https://www.freecodecamp.org/certification/bilal44/back-end-development-and-apis" target="_black" title="Backend Development & API Certificate"><p align="center"><img src="./Certificate blob/FCC-BE-Certificate.PNG" text="Backend Development & API Certificate" width="75%"/></p></a>
+
 -  ## JavaScript Algorithms and Data Structures
 
 <a href="https://www.freecodecamp.org/certification/bilal44/javascript-algorithms-and-data-structures" target="_blank" title="JavaScript Algorithms and Data Structures Certificate"><p align="center"><img src="./Certificate blob/FCC-JS-Certificate.PNG" text="JavaScript Algorithms and Data Structures Certificate" width="75%" /></p></a>
