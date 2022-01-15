@@ -41,3 +41,10 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     5. Visualize Data with a Treemap Diagram :heavy_check_mark: <b><a href="https://codepen.io/Bilal44/pen/LYzXMRP" target="_blank">CodePen Live Demo</a></b>
 
 <a href="https://www.freecodecamp.org/certification/bilal44/data-visualization" target="_blank" title="Data Visualization Certificate"><p align="center"><img src="./Certificate blob/FCC-D3-Certificate.PNG" text="Data Visualization Certificate" width="75%" /></p></a>
+
+- ## Quality Assurance
+    1. Metric-Imperial Converter
+    2. Issue Tracker
+    3. Personal Library
+    4. Sudoku Solver
+    5. American British Translator
