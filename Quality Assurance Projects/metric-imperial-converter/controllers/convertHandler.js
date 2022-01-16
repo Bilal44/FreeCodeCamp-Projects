@@ -1,8 +1,17 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    let result;
-    
+    let result = numberStringSplitter(input)[0];
+    let num = checkDiv(result);
+    if (!num) {
+      return undefined;
+    }
+    let num1 = num[0];
+    let num2 = num[1] || "1";
+    result = parseFloat(num1) / parseFloat(num2);
+    if (isNaN(num1) || isNaN(num2)) {
+      return undefined;
+    }
     return result;
   };
   
