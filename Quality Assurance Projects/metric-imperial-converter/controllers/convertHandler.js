@@ -1,5 +1,19 @@
 function ConvertHandler() {
+  function numberStringSplitter(input) {
+    let number = input.match(/[.\d\/]+/g) || ["1"];
+    let string = input.match(/[a-zA-Z]+/g)[0];
   
+    return [number[0], string];
+  }
+  
+  function checkDiv(possibleFraction) {
+    let nums = possibleFraction.split("/");
+    if (nums.length > 2) {
+      return false;
+    }
+    return nums;
+  }
+
   this.getNum = function(input) {
     let result = numberStringSplitter(input)[0];
     let num = checkDiv(result);
