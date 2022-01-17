@@ -97,7 +97,29 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     let result;
     
-    return result;
+    switch (unit) {
+      case "km":
+        result = initNum / miToKm;
+        break;
+      case "gal":
+        result = initNum * galToL;
+        break;
+      case "lbs":
+        result = initNum * lbsToKg;
+        break;
+      case "mi":
+        result = initNum * miToKm;
+        break;
+      case "l":
+        result = initNum / galToL;
+        break;
+      case "kg":
+        result = initNum / lbsToKg;
+        break;
+      default:
+        result = undefined;
+    }
+    return parseFloat(result.toFixed(5)); 
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
