@@ -97,7 +97,7 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     let result;
     
-    switch (unit) {
+    switch (initUnit) {
       case "km":
         result = initNum / miToKm;
         break;
