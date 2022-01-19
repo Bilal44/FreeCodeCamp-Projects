@@ -18,5 +18,11 @@ suite('Unit Tests', function () {
       let input = "4.52L";
       assert.equal(convertHandler.getNum(input), 4.52);
     });
+
+    // Correctly read a fractional input
+    test("Fractional Input Test", function () {
+      let input = "4/3L";
+      assert.equal(convertHandler.getNum(input), 4 / 3);
+    });
   });
 });
