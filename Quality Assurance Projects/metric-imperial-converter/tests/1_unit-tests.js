@@ -12,5 +12,11 @@ suite('Unit Tests', function () {
       let input = "4L";
       assert.equal(convertHandler.getNum(input), 4);
     });
+
+    // Correctly read a decimal number input
+    test("Decimal Input Test", function () {
+      let input = "4.52L";
+      assert.equal(convertHandler.getNum(input), 4.52);
+    });
   });
 });
