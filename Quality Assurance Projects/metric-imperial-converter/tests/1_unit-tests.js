@@ -24,5 +24,11 @@ suite('Unit Tests', function () {
       let input = "4/3L";
       assert.equal(convertHandler.getNum(input), 4 / 3);
     });
+
+    // Correctly read a fractional input with a decimal
+    test("Fractional Input with Decimal Test", function () {
+      let input = "4.71/2.09L";
+      assert.equal(convertHandler.getNum(input), 4.71 / 2.09);
+    });
   });
 });
