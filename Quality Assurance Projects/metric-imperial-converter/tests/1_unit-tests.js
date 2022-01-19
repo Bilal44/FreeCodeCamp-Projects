@@ -30,5 +30,11 @@ suite('Unit Tests', function () {
       let input = "4.71/2.09L";
       assert.equal(convertHandler.getNum(input), 4.71 / 2.09);
     });
+
+    // Correctly return an error on a double-fraction (i.e. `3/2/3`)
+    test("Invalid Input (Double Fraction) Test", function () {
+      let input = "3/2/3L";
+      assert.equal(convertHandler.getNum(input), undefined);
+    });
   });
 });
