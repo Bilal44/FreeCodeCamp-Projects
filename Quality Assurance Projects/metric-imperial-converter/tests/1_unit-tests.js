@@ -122,3 +122,14 @@ suite('Unit Tests', function () {
     });
   });
 });
+
+suite("Function convertHandler.getReturnUnit(initUnit)", function () {
+  // Return the correct return unit for each valid input unit
+  test("Valid Unit Conversion (Return Unit) Test", function () {
+    let input = ["gal", "l", "mi", "km", "lbs", "kg"];
+    let expect = ["L", "gal", "km", "mi", "kg", "lbs"];
+    input.forEach(function (value, index) {
+      assert.equal(convertHandler.getReturnUnit(value), expect[index]);
+    });
+  });
+});
