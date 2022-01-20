@@ -133,3 +133,14 @@ suite("Function convertHandler.getReturnUnit(initUnit)", function () {
     });
   });
 });
+
+suite("Function convertHandler.spellOutUnit(unit)", function () {
+  // Correctly return the spelled-out string unit for each valid input unit
+  test("Valid Fully Spelled-out Unit Test", function () {
+    let input = ["gal", "l", "mi", "km", "lbs", "kg"];
+    let expect = ["gallons", "liters", "miles", "kilometers", "pounds", "kilograms"];
+    input.forEach(function (value, index) {
+      assert.equal(convertHandler.spellOutUnit(value), expect[index]);
+    });
+  });
+});
