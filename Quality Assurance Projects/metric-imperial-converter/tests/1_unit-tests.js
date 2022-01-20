@@ -114,5 +114,11 @@ suite('Unit Tests', function () {
         assert.equal(convertHandler.getUnit(value), output[index]);
       });
     });
+
+    // Correctly return an error for an invalid input unit
+    test("Invalid Units Input Test", function () {
+      let input = "7grams";
+      assert.equal(convertHandler.getNum(input), undefined);
+    });
   });
 });
