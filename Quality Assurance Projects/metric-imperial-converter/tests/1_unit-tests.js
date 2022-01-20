@@ -36,5 +36,11 @@ suite('Unit Tests', function () {
       let input = "3/2/3L";
       assert.equal(convertHandler.getNum(input), undefined);
     });
+
+    // Correctly default to a numerical input of 1 when no numerical input is provided
+    test("No Numerical Input Test", function () {
+      let input = "L";
+      assert.equal(convertHandler.getNum(input), 1);
+    });
   });
 });
