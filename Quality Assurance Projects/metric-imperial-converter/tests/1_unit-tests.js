@@ -5,6 +5,7 @@ const ConvertHandler = require('../controllers/convertHandler.js');
 let convertHandler = new ConvertHandler();
 
 suite('Unit Tests', function () {
+  // convertHandler.getNum() tests validating numeric inputs
   suite("Function convertHandler.getNum(input)", function () { 
     // Correctly read a whole number input
     test("Whole Number Input Test", function () {
@@ -43,6 +44,7 @@ suite('Unit Tests', function () {
     });
   });
 
+  // convertHandler.getUnit() tests validating unit inputs
   suite("Function convertHandler.getUnit(input)", function () {
     // Correctly read each valid input unit
     test("Valid Units Input Test", function () {
@@ -123,6 +125,7 @@ suite('Unit Tests', function () {
   });
 });
 
+// convertHandler.getReturnUnit() tests validating returned units after a successful conversion
 suite("Function convertHandler.getReturnUnit(initUnit)", function () {
   // Return the correct return unit for each valid input unit
   test("Valid Unit Conversion (Return Unit) Test", function () {
@@ -134,6 +137,7 @@ suite("Function convertHandler.getReturnUnit(initUnit)", function () {
   });
 });
 
+// convertHandler.spellOutUnit() tests validating returned spelled-out units
 suite("Function convertHandler.spellOutUnit(unit)", function () {
   // Correctly return the spelled-out string unit for each valid input unit
   test("Valid Fully Spelled-out Unit Test", function () {
@@ -145,6 +149,7 @@ suite("Function convertHandler.spellOutUnit(unit)", function () {
   });
 });
 
+//  convertHandler.convert() tests validating returned numerical outputs after each individual successful conversion
 suite("Function convertHandler.convert(num, unit)", function () {
   // Correctly convert `gal` to `L`
   test("gal to L Conversion Test", function () {
