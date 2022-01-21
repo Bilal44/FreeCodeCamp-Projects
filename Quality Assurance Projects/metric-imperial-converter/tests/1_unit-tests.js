@@ -144,3 +144,16 @@ suite("Function convertHandler.spellOutUnit(unit)", function () {
     });
   });
 });
+
+suite("Function convertHandler.convert(num, unit)", function () {
+  // Correctly convert `gal` to `L`
+  test("gal to L Conversion Test", function () {
+    let input = [2.41, "gal"];
+    let expected = 9.1228381;
+    assert.approximately(
+      convertHandler.convert(input[0], input[1]),
+      expected,
+      0.01 //0.01 tolerance
+    );
+  });
+});
