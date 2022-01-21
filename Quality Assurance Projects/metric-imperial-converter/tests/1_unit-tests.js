@@ -156,4 +156,15 @@ suite("Function convertHandler.convert(num, unit)", function () {
       0.01 //0.01 tolerance
     );
   });
+
+  // Correctly convert `L` to `gal`
+  test("L to gal Conversion Test", function () {
+    let input = [22, "l"];
+    let expected = 5.81178789;
+    assert.approximately(
+      convertHandler.convert(input[0], input[1]),
+      expected,
+      0.01 //0.01 tolerance
+    );
+  });
 });
