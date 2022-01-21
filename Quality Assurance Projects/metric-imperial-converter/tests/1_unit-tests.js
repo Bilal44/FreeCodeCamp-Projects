@@ -178,4 +178,15 @@ suite("Function convertHandler.convert(num, unit)", function () {
       0.01 //0.01 tolerance
     );
   });
+
+  // Correctly convert `km` to `mi`
+  test("km to mi Conversion Test", function () {
+    let input = [4, "km"];
+    let expected = 2.4854909;
+    assert.approximately(
+      convertHandler.convert(input[0], input[1]),
+      expected,
+      0.01 //0.01 tolerance
+    );
+  });
 });
