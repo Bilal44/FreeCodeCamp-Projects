@@ -189,4 +189,15 @@ suite("Function convertHandler.convert(num, unit)", function () {
       0.01 //0.01 tolerance
     );
   });
+
+  // Correctly convert `lbs` to `kg`
+  test("lbs to kg Conversion Test", function () {
+    let input = [7, "lbs"];
+    let expected = 3.175144;
+    assert.approximately(
+      convertHandler.convert(input[0], input[1]),
+      expected,
+      0.01 //0.01 tolerance
+    );
+  });
 });
