@@ -96,8 +96,9 @@ function ConvertHandler() {
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
     let result;
+    let unit = initUnit.toLowerCase();
     
-    switch (initUnit) {
+    switch (unit) {
       case "km":
         result = initNum / miToKm;
         break;
@@ -125,7 +126,7 @@ function ConvertHandler() {
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     return `${initNum} ${this.spellOutUnit(
       initUnit
-    )} converts to   ${returnNum} ${this.spellOutUnit(returnUnit)}`;
+    )} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
   };
   
 }
