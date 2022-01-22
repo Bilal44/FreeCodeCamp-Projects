@@ -22,6 +22,18 @@ suite('Functional Tests', function () {
                         assert.equal(res.body.returnUnit, "gal");
                     });
             });
+            
+            // Convert an invalid input such as `32g`: `GET` request to `/api/convert`
+            test("32g (Invalid Input) Conversion Request Test", function () {
+                chai
+                    .request(server)
+                    .get("/api/convert")
+                    .query({ input: "32g" })
+                    .end(function (err, res) {
+                        assert.equal(res.status, 200);
+                        assert.equal(res.body.initUnit, undefined);
+                    });
+            });
         });
     });
 });
