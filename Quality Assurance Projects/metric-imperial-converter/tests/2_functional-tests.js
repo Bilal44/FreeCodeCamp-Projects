@@ -46,6 +46,19 @@ suite('Functional Tests', function () {
                         assert.equal(res.body.initNum, undefined);
                     });
             });
+
+            // Convert an invalid number AND unit such as `3/7.2/4kilomegagram`: `GET` request to `/api/convert`
+            test("3/7.2/4kilomegagram (Invalid Number and Unit) Conversion Request Test", function () {
+                chai
+                    .request(server)
+                    .get("/api/convert")
+                    .query({ input: "3/7.2/4kilomegagram" })
+                    .end(function (err, res) {
+                        assert.equal(res.status, 200);
+                        assert.equal(res.body.initNum, undefined);
+                        assert.equal(res.body.initUnit, undefined);
+                    });
+            });
         });
     });
 });
