@@ -43,7 +43,7 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 <a href="https://www.freecodecamp.org/certification/bilal44/data-visualization" target="_blank" title="Data Visualization Certificate"><p align="center"><img src="./Certificate blob/FCC-D3-Certificate.PNG" text="Data Visualization Certificate" width="75%" /></p></a>
 
 - ## Quality Assurance
-    1. Metric-Imperial Converter
+    1. Metric-Imperial Converter :heavy_check_mark:
     2. Issue Tracker
     3. Personal Library
     4. Sudoku Solver
