@@ -6,7 +6,7 @@ let convertHandler = new ConvertHandler();
 
 suite('Unit Tests', function () {
   // convertHandler.getNum() tests validating numeric inputs
-  suite("Function convertHandler.getNum(input)", function () { 
+  suite("Function convertHandler.getNum(input)", function () {
     // Correctly read a whole number input
     test("Whole Number Input Test", function () {
       let input = "4L";
@@ -123,97 +123,98 @@ suite('Unit Tests', function () {
       assert.equal(convertHandler.getUnit(input), undefined);
     });
   });
-});
 
-// convertHandler.getReturnUnit() tests validating returned units after a successful conversion
-suite("Function convertHandler.getReturnUnit(initUnit)", function () {
-  // Return the correct return unit for each valid input unit
-  test("Valid Unit Conversion (Return Unit) Test", function () {
-    let input = ["gal", "l", "mi", "km", "lbs", "kg"];
-    let expect = ["L", "gal", "km", "mi", "kg", "lbs"];
-    input.forEach(function (value, index) {
-      assert.equal(convertHandler.getReturnUnit(value), expect[index]);
+
+  // convertHandler.getReturnUnit() tests validating returned units after a successful conversion
+  suite("Function convertHandler.getReturnUnit(initUnit)", function () {
+    // Return the correct return unit for each valid input unit
+    test("Valid Unit Conversion (Return Unit) Test", function () {
+      let input = ["gal", "l", "mi", "km", "lbs", "kg"];
+      let expect = ["L", "gal", "km", "mi", "kg", "lbs"];
+      input.forEach(function (value, index) {
+        assert.equal(convertHandler.getReturnUnit(value), expect[index]);
+      });
     });
   });
-});
 
-// convertHandler.spellOutUnit() tests validating returned spelled-out units
-suite("Function convertHandler.spellOutUnit(unit)", function () {
-  // Correctly return the spelled-out string unit for each valid input unit
-  test("Valid Fully Spelled-out Unit Test", function () {
-    let input = ["gal", "l", "mi", "km", "lbs", "kg"];
-    let expect = ["gallons", "liters", "miles", "kilometers", "pounds", "kilograms"];
-    input.forEach(function (value, index) {
-      assert.equal(convertHandler.spellOutUnit(value), expect[index]);
+  // convertHandler.spellOutUnit() tests validating returned spelled-out units
+  suite("Function convertHandler.spellOutUnit(unit)", function () {
+    // Correctly return the spelled-out string unit for each valid input unit
+    test("Valid Fully Spelled-out Unit Test", function () {
+      let input = ["gal", "l", "mi", "km", "lbs", "kg"];
+      let expect = ["gallons", "liters", "miles", "kilometers", "pounds", "kilograms"];
+      input.forEach(function (value, index) {
+        assert.equal(convertHandler.spellOutUnit(value), expect[index]);
+      });
     });
   });
-});
 
-//  convertHandler.convert() tests validating returned numerical outputs after each individual successful conversion
-suite("Function convertHandler.convert(num, unit)", function () {
-  // Correctly convert `gal` to `L`
-  test("gal to L Conversion Test", function () {
-    let input = [2.41, "gal"];
-    let expected = 9.1228381;
-    assert.approximately(
-      convertHandler.convert(input[0], input[1]),
-      expected,
-      0.01 //0.01 tolerance
-    );
-  });
+  //  convertHandler.convert() tests validating returned numerical outputs after each individual successful conversion
+  suite("Function convertHandler.convert(num, unit)", function () {
+    // Correctly convert `gal` to `L`
+    test("gal to L Conversion Test", function () {
+      let input = [2.41, "gal"];
+      let expected = 9.1228381;
+      assert.approximately(
+        convertHandler.convert(input[0], input[1]),
+        expected,
+        0.01 //0.01 tolerance
+      );
+    });
 
-  // Correctly convert `L` to `gal`
-  test("L to gal Conversion Test", function () {
-    let input = [22, "l"];
-    let expected = 5.81178789;
-    assert.approximately(
-      convertHandler.convert(input[0], input[1]),
-      expected,
-      0.01 //0.01 tolerance
-    );
-  });
+    // Correctly convert `L` to `gal`
+    test("L to gal Conversion Test", function () {
+      let input = [22, "l"];
+      let expected = 5.81178789;
+      assert.approximately(
+        convertHandler.convert(input[0], input[1]),
+        expected,
+        0.01 //0.01 tolerance
+      );
+    });
 
-  // Correctly convert `mi` to `km`
-  test("mi to km Conversion Test", function () {
-    let input = [3, "mi"];
-    let expected = 4.82802;
-    assert.approximately(
-      convertHandler.convert(input[0], input[1]),
-      expected,
-      0.01 //0.01 tolerance
-    );
-  });
+    // Correctly convert `mi` to `km`
+    test("mi to km Conversion Test", function () {
+      let input = [3, "mi"];
+      let expected = 4.82802;
+      assert.approximately(
+        convertHandler.convert(input[0], input[1]),
+        expected,
+        0.01 //0.01 tolerance
+      );
+    });
 
-  // Correctly convert `km` to `mi`
-  test("km to mi Conversion Test", function () {
-    let input = [4, "km"];
-    let expected = 2.4854909;
-    assert.approximately(
-      convertHandler.convert(input[0], input[1]),
-      expected,
-      0.01 //0.01 tolerance
-    );
-  });
+    // Correctly convert `km` to `mi`
+    test("km to mi Conversion Test", function () {
+      let input = [4, "km"];
+      let expected = 2.4854909;
+      assert.approximately(
+        convertHandler.convert(input[0], input[1]),
+        expected,
+        0.01 //0.01 tolerance
+      );
+    });
 
-  // Correctly convert `lbs` to `kg`
-  test("lbs to kg Conversion Test", function () {
-    let input = [7, "lbs"];
-    let expected = 3.175144;
-    assert.approximately(
-      convertHandler.convert(input[0], input[1]),
-      expected,
-      0.01 //0.01 tolerance
-    );
-  });
+    // Correctly convert `lbs` to `kg`
+    test("lbs to kg Conversion Test", function () {
+      let input = [7, "lbs"];
+      let expected = 3.175144;
+      assert.approximately(
+        convertHandler.convert(input[0], input[1]),
+        expected,
+        0.01 //0.01 tolerance
+      );
+    });
 
-  // Correctly convert `kg` to `lbs`
-  test("kg to lbs Conversion Test", function () {
-    let input = [3.22, "kg"];
-    let expected = 7.0988906;
-    assert.approximately(
-      convertHandler.convert(input[0], input[1]),
-      expected,
-      0.01 //0.01 tolerance
-    );
+    // Correctly convert `kg` to `lbs`
+    test("kg to lbs Conversion Test", function () {
+      let input = [3.22, "kg"];
+      let expected = 7.0988906;
+      assert.approximately(
+        convertHandler.convert(input[0], input[1]),
+        expected,
+        0.01 //0.01 tolerance
+      );
+    });
   });
 });
