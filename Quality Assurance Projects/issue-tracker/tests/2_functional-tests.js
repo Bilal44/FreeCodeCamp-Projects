@@ -58,6 +58,25 @@ suite('Functional Tests', function () {
             assert.equal(res.body.status_text, "");
           });
       });
+      
+      // Create an issue with missing required fields: POST request to `/api/issues/{project}`
+      test("POST request to /api/issues/test-project with missing required fields", function () {
+        chai
+          .request(server)
+          .post("/api/issues/test-project")
+          .set("content-type", "application/json")
+          .send({
+            issue_title: "",
+            issue_text: "Functional Test",
+            created_by: "fCC",
+            assigned_to: "",
+            status_text: "",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.error, "required field(s) missing");
+          });
+      });
     });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
