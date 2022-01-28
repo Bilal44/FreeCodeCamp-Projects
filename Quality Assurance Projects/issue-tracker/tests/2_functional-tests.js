@@ -35,6 +35,29 @@ suite('Functional Tests', function () {
             assert.equal(res.body.issue_text, "Functional Test");
           });
       });
+
+      // Create an issue with only required fields: POST request to `/api/issues/{project}`
+      test("POST request to /api/issues/test-project with only required field completed", function () {
+        chai
+          .request(server)
+          .post("/api/issues/test-project")
+          .set("content-type", "application/json")
+          .send({
+            issue_title: "Partially Completed Issue",
+            issue_text: "Functional Test",
+            created_by: "fCC",
+            assigned_to: "",
+            status_text: "",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.issue_title, "Partially Completed Issue");
+            assert.equal(res.body.created_by, "fCC");
+            assert.equal(res.body.issue_text, "Functional Test");
+            assert.equal(res.body.assigned_to, "");
+            assert.equal(res.body.status_text, "");
+          });
+      });
     });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
