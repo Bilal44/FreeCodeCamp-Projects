@@ -116,6 +116,32 @@ suite('Functional Tests', function () {
             });
           });
       });
+
+      // View issues on a project with multiple filters: GET request to `/api/issues/{project}`
+      test("GET request to /api/issues/test-project with issue_title, created_by and open filters", function () {
+        chai
+          .request(server)
+          .get("/api/issues/test-get-data")
+          .query({
+            issue_title: "Test Issue 3",
+            created_by: "Test",
+            open: "false",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.deepEqual(res.body[0], {
+              issue_title: "Test Issue 3",
+              issue_text: "Test Details 3",
+              created_on: "2022-01-29T22:03:12.535Z",
+              updated_on: "2022-01-29T22:13:45.767Z",
+              created_by: "Test",
+              assigned_to: "Developer 1",
+              status_text: "Done",
+              _id: "61f5b9a0aa72b91fe9e35aca",
+              open: false
+            });
+          });
+      });
     });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
