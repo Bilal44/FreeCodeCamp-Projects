@@ -58,7 +58,7 @@ suite('Functional Tests', function () {
             assert.equal(res.body.status_text, "");
           });
       });
-      
+
       // Create an issue with missing required fields: POST request to `/api/issues/{project}`
       test("POST request to /api/issues/test-project with missing required fields", function () {
         chai
@@ -79,19 +79,43 @@ suite('Functional Tests', function () {
       });
     });
 
-      // GET REQUEST TESTS
-      suite("Get request Tests", function () {
+    // GET REQUEST TESTS
+    suite("Get request Tests", function () {
 
-        // View issues on a project: GET request to `/api/issues/{project}`
-        test("GET request to /api/issues/test-get-data to view all issues", function () {
-          chai
-            .request(server)
-            .get("/api/issues/test-get-data")
-            .end(function (err, res) {
-              assert.equal(res.status, 200);
-              assert.equal(res.body.length, 3);
-            });
-        });
+      // View issues on a project: GET request to `/api/issues/{project}`
+      test("GET request to /api/issues/test-get-data to view all issues", function () {
+        chai
+          .request(server)
+          .get("/api/issues/test-get-data")
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.length, 3);
+          });
       });
+
+      // View issues on a project with one filter: GET request to `/api/issues/{project}`
+      test("GET request to /api/issues/test-get-data with assigned_to field set to `Bilal`", function () {
+        chai
+          .request(server)
+          .get("/api/issues/test-get-data")
+          .query({
+            assigned_to: "Bilal",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.deepEqual(res.body[0], {
+              issue_title: "Test Issue 2",
+              issue_text: "Test Details 2",
+              created_on: "2022-01-29T22:02:52.756Z",
+              updated_on: "2022-01-29T22:02:52.756Z",
+              created_by: "Test",
+              assigned_to: "Bilal",
+              open: true,
+              status_text: "",
+              _id: "61f5b98caa72b91fe9e35ac5",
+            });
+          });
+      });
+    });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
