@@ -78,5 +78,20 @@ suite('Functional Tests', function () {
           });
       });
     });
+
+      // GET REQUEST TESTS
+      suite("Get request Tests", function () {
+
+        // View issues on a project: GET request to `/api/issues/{project}`
+        test("GET request to /api/issues/test-get-data to view all issues", function () {
+          chai
+            .request(server)
+            .get("/api/issues/test-get-data")
+            .end(function (err, res) {
+              assert.equal(res.status, 200);
+              assert.equal(res.body.length, 3);
+            });
+        });
+      });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
