@@ -208,6 +208,22 @@ suite('Functional Tests', function () {
             assert.equal(res.status, 200);
             assert.equal(res.body.error, "no update field(s) sent");
           });
+
+        // Update an issue with an invalid `_id`: PUT request to `/api/issues/{project}`
+        test("PUT request to /api/issues/test-project with an invalid id", function () {
+          chai
+            .request(server)
+            .put("/api/issues/test-data-put")
+            .send({
+              _id: "6fffffff",
+              issue_title: "update",
+              issue_text: "update",
+            })
+            .end(function (err, res) {
+              assert.equal(res.status, 200);
+              assert.equal(res.body.error, "could not update");
+            });
+        });
       });
     });
   }); // End of Routing Tests suite
