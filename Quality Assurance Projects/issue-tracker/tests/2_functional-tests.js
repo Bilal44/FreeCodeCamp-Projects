@@ -180,6 +180,21 @@ suite('Functional Tests', function () {
             assert.equal(res.body._id, "61f2ef40367b6d55f0a9053b");
           });
       });
+
+      // Update an issue with missing `_id`: PUT request to `/api/issues/{project}`
+      test("PUT request to /api/issues/test-project with missing id", function () {
+        chai
+          .request(server)
+          .put("/api/issues/apitest")
+          .send({
+            issue_title: "update",
+            issue_text: "update",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.error, "missing _id");
+          });
+      });
     });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
