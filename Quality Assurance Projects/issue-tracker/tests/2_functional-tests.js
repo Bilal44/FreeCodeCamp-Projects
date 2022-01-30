@@ -195,6 +195,20 @@ suite('Functional Tests', function () {
             assert.equal(res.body.error, "missing _id");
           });
       });
+
+      // Update an issue with no fields to update: PUT request to `/api/issues/{project}`
+      test("PUT request to /api/issues/test-project with no updated fields", function () {
+        chai
+          .request(server)
+          .put("/api/issues/apitest")
+          .send({
+            _id: "61f2ef40367b6d55f0a9053b"
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.error, "no update field(s) sent");
+          });
+      });
     });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
