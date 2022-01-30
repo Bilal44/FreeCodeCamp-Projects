@@ -143,7 +143,7 @@ suite('Functional Tests', function () {
           });
       });
     });
-    
+
     // PUT REQUEST TESTS
     suite("Put request Tests", function () {
 
@@ -160,6 +160,24 @@ suite('Functional Tests', function () {
             assert.equal(res.status, 200);
             assert.equal(res.body.result, "successfully updated");
             assert.equal(res.body._id, "61f2f35a6e8053c334c38226");
+          });
+      });
+
+      // Update multiple fields on an issue: PUT request to `/api/issues/{project}`
+      test("PUT request to /api/issues/apitest updating assigned_to, created_by and open fields", function () {
+        chai
+          .request(server)
+          .put("/api/issues/apitest")
+          .send({
+            _id: "61f2ef40367b6d55f0a9053b",
+            assigned_to: "PUT Request Developer",
+            created_by: "PUT Requested Creator",
+            open: false,
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.result, "successfully updated");
+            assert.equal(res.body._id, "61f2ef40367b6d55f0a9053b");
           });
       });
     });
