@@ -143,5 +143,25 @@ suite('Functional Tests', function () {
           });
       });
     });
+    
+    // PUT REQUEST TESTS
+    suite("Put request Tests", function () {
+
+      // Update one field on an issue: PUT request to `/api/issues/{project}`
+      test("PUT request to /api/issues/apitest updating issue_title field", function () {
+        chai
+          .request(server)
+          .put("/api/issues/apitest")
+          .send({
+            _id: "61f2f35a6e8053c334c38226",
+            issue_title: "Update title by PUT request"
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.result, "successfully updated");
+            assert.equal(res.body._id, "61f2f35a6e8053c334c38226");
+          });
+      });
+    });
   }); // End of Routing Tests suite
 }); // End of Function Tests suite
