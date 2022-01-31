@@ -255,6 +255,18 @@ suite('Functional Tests', function () {
                 assert.equal(res.body.error, "could not delete");
               });
           });
+          
+          // Delete an issue with missing `_id`: DELETE request to `/api/issues/{project}`
+          test("DELETE request to /api/issues/test-project with missing id", function () {
+            chai
+              .request(server)
+              .delete("/api/issues/test-project")
+              .send({})
+              .end(function (err, res) {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.error, "missing _id");
+              });
+          });
         });
       });
     });
