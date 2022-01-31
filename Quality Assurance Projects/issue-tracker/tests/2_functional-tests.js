@@ -14,7 +14,7 @@ suite('Functional Tests', function () {
     suite("Post Request Tests", function () {
 
       // Create an issue with every field: POST request to `/api/issues/{project}`
-      test("POST request to /api/issues/test-project with every field completed", function () {
+      test("POST request to /api/issues/test-project with every field completed", function (done) {
         chai
           .request(server)
           .post("/api/issues/test-project")
@@ -34,6 +34,7 @@ suite('Functional Tests', function () {
             assert.equal(res.body.created_by, "fCC");
             assert.equal(res.body.status_text, "Not Done");
             assert.equal(res.body.issue_text, "Functional Test");
+            done();
           });
       });
 
