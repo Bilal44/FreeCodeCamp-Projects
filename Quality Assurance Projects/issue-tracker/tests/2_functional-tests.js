@@ -9,8 +9,9 @@ chai.use(chaiHttp);
 suite('Functional Tests', function () {
   let deleteID;
   suite("Routing Tests", function () {
+
     // POST REQUEST TESTS
-    suite("Post request Tests", function () {
+    suite("Post Request Tests", function () {
 
       // Create an issue with every field: POST request to `/api/issues/{project}`
       test("POST request to /api/issues/test-project with every field completed", function () {
@@ -80,7 +81,7 @@ suite('Functional Tests', function () {
     });
 
     // GET REQUEST TESTS
-    suite("Get request Tests", function () {
+    suite("Get Request Tests", function () {
 
       // View issues on a project: GET request to `/api/issues/{project}`
       test("GET request to /api/issues/test-get-data to view all issues", function () {
@@ -145,7 +146,7 @@ suite('Functional Tests', function () {
     });
 
     // PUT REQUEST TESTS
-    suite("Put request Tests", function () {
+    suite("Put Request Tests", function () {
 
       // Update one field on an issue: PUT request to `/api/issues/{project}`
       test("PUT request to /api/issues/apitest updating issue_title field", function () {
@@ -208,66 +209,66 @@ suite('Functional Tests', function () {
             assert.equal(res.status, 200);
             assert.equal(res.body.error, "no update field(s) sent");
           });
+      });
 
-        // Update an issue with an invalid `_id`: PUT request to `/api/issues/{project}`
-        test("PUT request to /api/issues/test-project with an invalid id", function () {
-          chai
-            .request(server)
-            .put("/api/issues/test-data-put")
-            .send({
-              _id: "6fffffff",
-              issue_title: "update",
-              issue_text: "update",
-            })
-            .end(function (err, res) {
-              assert.equal(res.status, 200);
-              assert.equal(res.body.error, "could not update");
-            });
-        });
-
-        // DELETE REQUEST TESTS
-        suite("Delete request Tests", function () {
-
-          // Delete an issue: DELETE request to `/api/issues/{project}`
-          test("DELETE request to /api/issues/test-project with a valid id", function () {
-            chai
-              .request(server)
-              .delete("/api/issues/test-project")
-              .send({
-                _id: deleteID,
-              })
-              .end(function (err, res) {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.result, "successfully deleted");
-              });
+      // Update an issue with an invalid `_id`: PUT request to `/api/issues/{project}`
+      test("PUT request to /api/issues/test-project with an invalid id", function () {
+        chai
+          .request(server)
+          .put("/api/issues/test-data-put")
+          .send({
+            _id: "6fffffff",
+            issue_title: "update",
+            issue_text: "update",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.error, "could not update");
           });
+      });
+    });
 
-          // Delete an issue with an invalid `_id`: DELETE request to `/api/issues/{project}`
-          test("DELETE request to /api/issues/test-project with an invalid id", function () {
-            chai
-              .request(server)
-              .delete("/api/issues/test-project")
-              .send({
-                _id: "6ffffffff",
-              })
-              .end(function (err, res) {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.error, "could not delete");
-              });
+    // DELETE REQUEST TESTS
+    suite("Delete Request Tests", function () {
+
+      // Delete an issue: DELETE request to `/api/issues/{project}`
+      test("DELETE request to /api/issues/test-project with a valid id", function () {
+        chai
+          .request(server)
+          .delete("/api/issues/test-project")
+          .send({
+            _id: deleteID,
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.result, "successfully deleted");
           });
-          
-          // Delete an issue with missing `_id`: DELETE request to `/api/issues/{project}`
-          test("DELETE request to /api/issues/test-project with missing id", function () {
-            chai
-              .request(server)
-              .delete("/api/issues/test-project")
-              .send({})
-              .end(function (err, res) {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.error, "missing _id");
-              });
+      });
+
+      // Delete an issue with an invalid `_id`: DELETE request to `/api/issues/{project}`
+      test("DELETE request to /api/issues/test-project with an invalid id", function () {
+        chai
+          .request(server)
+          .delete("/api/issues/test-project")
+          .send({
+            _id: "6ffffffff",
+          })
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.error, "could not delete");
           });
-        });
+      });
+
+      // Delete an issue with missing `_id`: DELETE request to `/api/issues/{project}`
+      test("DELETE request to /api/issues/test-project with missing id", function () {
+        chai
+          .request(server)
+          .delete("/api/issues/test-project")
+          .send({})
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.error, "missing _id");
+          });
       });
     });
   }); // End of Routing Tests suite
