@@ -120,14 +120,14 @@ suite('Functional Tests', function () {
       });
 
       // View issues on a project with multiple filters: GET request to `/api/issues/{project}`
-      test("GET request to /api/issues/test-project with issue_title, created_by and open filters", function () {
+      test("GET request to /api/issues/test-project with issue_title, created_by and status_text filters", function () {
         chai
           .request(server)
           .get("/api/issues/test-get-data")
           .query({
             issue_title: "Test Issue 3",
             created_by: "Test",
-            open: "false",
+            status_text: "Done",
           })
           .end(function (err, res) {
             assert.equal(res.status, 200);
