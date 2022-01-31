@@ -241,6 +241,20 @@ suite('Functional Tests', function () {
                 assert.equal(res.body.result, "successfully deleted");
               });
           });
+
+          // Delete an issue with an invalid `_id`: DELETE request to `/api/issues/{project}`
+          test("DELETE request to /api/issues/test-project with an invalid id", function () {
+            chai
+              .request(server)
+              .delete("/api/issues/test-project")
+              .send({
+                _id: "6ffffffff",
+              })
+              .end(function (err, res) {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.error, "could not delete");
+              });
+          });
         });
       });
     });
