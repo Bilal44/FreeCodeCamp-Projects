@@ -224,6 +224,24 @@ suite('Functional Tests', function () {
               assert.equal(res.body.error, "could not update");
             });
         });
+
+        // DELETE REQUEST TESTS
+        suite("Delete request Tests", function () {
+
+          // Delete an issue: DELETE request to `/api/issues/{project}`
+          test("DELETE request to /api/issues/test-project with a valid id", function () {
+            chai
+              .request(server)
+              .delete("/api/issues/test-project")
+              .send({
+                _id: deleteID,
+              })
+              .end(function (err, res) {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.result, "successfully deleted");
+              });
+          });
+        });
       });
     });
   }); // End of Routing Tests suite
