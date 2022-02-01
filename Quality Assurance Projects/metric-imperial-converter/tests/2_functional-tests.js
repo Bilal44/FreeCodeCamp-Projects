@@ -7,9 +7,9 @@ chai.use(chaiHttp);
 
 suite('Functional Tests', function () {
     suite("Routing Tests", function () {
-        suite("/api/convert GET Request Tests", function () {
+        suite("1 - /api/convert GET Request Tests", function () {
             // Convert a valid input such as `10L`: `GET` request to `/api/convert`
-            test("10L (Valid Input) Conversion Request Test", function () {
+            test("1.1 - 10L (Valid Input) Conversion Request Test", function () {
                 chai
                     .request(server)
                     .get("/api/convert")
@@ -24,7 +24,7 @@ suite('Functional Tests', function () {
             });
             
             // Convert an invalid input such as `32g`: `GET` request to `/api/convert`
-            test("32g (Invalid Input) Conversion Request Test", function () {
+            test("1.2 - 32g (Invalid Input) Conversion Request Test", function () {
                 chai
                     .request(server)
                     .get("/api/convert")
@@ -36,7 +36,7 @@ suite('Functional Tests', function () {
             });
 
             // Convert an invalid number such as `3/7.2/4kg`: `GET` request to `/api/convert`
-            test("3/7.2/4kg (Invalid Number) Conversion Request Test", function () {
+            test("1.3 - 3/7.2/4kg (Invalid Number) Conversion Request Test", function () {
                 chai
                     .request(server)
                     .get("/api/convert")
@@ -48,7 +48,7 @@ suite('Functional Tests', function () {
             });
 
             // Convert an invalid number AND unit such as `3/7.2/4kilomegagram`: `GET` request to `/api/convert`
-            test("3/7.2/4kilomegagram (Invalid Number and Unit) Conversion Request Test", function () {
+            test("1.4 - 3/7.2/4kilomegagram (Invalid Number and Unit) Conversion Request Test", function () {
                 chai
                     .request(server)
                     .get("/api/convert")
@@ -61,7 +61,7 @@ suite('Functional Tests', function () {
             });
 
             // Convert with no number such as `kg`: `GET` request to `/api/convert
-            test("kg (No Number) Conversion Request Test", function () {
+            test("1.5 - kg (No Number) Conversion Request Test", function () {
                 chai
                     .request(server)
                     .get("/api/convert")
