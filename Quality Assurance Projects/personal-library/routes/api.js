@@ -23,8 +23,7 @@ module.exports = function (app) {
             return {
               _id: book._id,
               title: book.title,
-              comments: book.comments,
-              commentcount: book.comments.length,
+              commentcount: book.comments.length
             };
           });
           res.json(books);
@@ -72,7 +71,7 @@ module.exports = function (app) {
         } else {
           res.json({
             _id: bookID,
-            book_title: data.title,
+            title: data.title,
             comments: data.comments
           });
         }
@@ -96,7 +95,7 @@ module.exports = function (app) {
           book.save((err, data) => {
             res.json({
               _id: bookID,
-              book_title: data.title,
+              title: data.title,
               comments: data.comments
             });
           });
