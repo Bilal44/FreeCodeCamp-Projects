@@ -66,6 +66,17 @@ module.exports = function (app) {
     .get(function (req, res){
       let bookID = req.params.id;
       //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
+      Book.findById(bookID, (err, data) => {
+        if (!data) {
+          res.send("no book exists");
+        } else {
+          res.json({
+            _id: bookID,
+            book_title: data.title,
+            comments: data.comments
+          });
+        }
+      });
     })
     
     .post(function(req, res){
