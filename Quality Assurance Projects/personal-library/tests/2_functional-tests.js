@@ -68,56 +68,64 @@ suite('Functional Tests', function () {
     });
 
 
-    suite('GET /api/books => array of books', function () {
+    suite('1.2 - GET /api/books => array of books', function () {
 
-      test('Test GET /api/books', function (done) {
-        //done();
+      test('1.2.1 - Test GET /api/books', function (done) {
+        chai.request(server)
+          .get('/api/books')
+          .end(function (err, res) {
+            assert.equal(res.status, 200);
+            assert.isArray(res.body, 'response should be an array');
+            assert.property(res.body[0], 'commentcount', 'Books in array should contain commentcount');
+            assert.property(res.body[0], 'title', 'Books in array should contain title');
+            assert.property(res.body[0], '_id', 'Books in array should contain _id');
+            done();
+          });
+
       });
 
-    });
 
+      suite('GET /api/books/[id] => book object with [id]', function () {
 
-    suite('GET /api/books/[id] => book object with [id]', function () {
+        test('Test GET /api/books/[id] with id not in db', function (done) {
+          //done();
+        });
 
-      test('Test GET /api/books/[id] with id not in db', function (done) {
-        //done();
+        test('Test GET /api/books/[id] with valid id in db', function (done) {
+          //done();
+        });
+
       });
 
-      test('Test GET /api/books/[id] with valid id in db', function (done) {
-        //done();
+
+      suite('POST /api/books/[id] => add comment/expect book object with id', function () {
+
+        test('Test POST /api/books/[id] with comment', function (done) {
+          //done();
+        });
+
+        test('Test POST /api/books/[id] without comment field', function (done) {
+          //done();
+        });
+
+        test('Test POST /api/books/[id] with comment, id not in db', function (done) {
+          //done();
+        });
+
       });
 
-    });
+      suite('DELETE /api/books/[id] => delete book object id', function () {
 
+        test('Test DELETE /api/books/[id] with valid id in db', function (done) {
+          //done();
+        });
 
-    suite('POST /api/books/[id] => add comment/expect book object with id', function () {
+        test('Test DELETE /api/books/[id] with  id not in db', function (done) {
+          //done();
+        });
 
-      test('Test POST /api/books/[id] with comment', function (done) {
-        //done();
-      });
-
-      test('Test POST /api/books/[id] without comment field', function (done) {
-        //done();
-      });
-
-      test('Test POST /api/books/[id] with comment, id not in db', function (done) {
-        //done();
-      });
-
-    });
-
-    suite('DELETE /api/books/[id] => delete book object id', function () {
-
-      test('Test DELETE /api/books/[id] with valid id in db', function (done) {
-        //done();
-      });
-
-      test('Test DELETE /api/books/[id] with  id not in db', function (done) {
-        //done();
       });
 
     });
 
   });
-
-});
