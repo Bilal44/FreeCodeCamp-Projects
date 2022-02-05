@@ -42,8 +42,10 @@ module.exports = function (app) {
       newBook.save((err, data) => {
         if (err || !data) {
           res.send("a save error occured");
+          return;
         } else {
           res.json({ _id: data._id, title: data.title });
+          return;
         }
       });
     })
@@ -87,8 +89,8 @@ module.exports = function (app) {
         return;
       }
       //json res format same as .get
-      Book.findById(bookID, (err, bookdata) => {
-        if (!bookdata) {
+      Book.findById(bookID, (err, book) => {
+        if (!book) {
           res.send("no book with this id exists");
         } else {
           book.comments.push(comment);
