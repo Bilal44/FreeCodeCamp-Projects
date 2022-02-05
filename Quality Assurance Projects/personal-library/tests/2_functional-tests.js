@@ -58,7 +58,7 @@ suite('Functional Tests', function () {
           .send({})
           .end(function (err, res) {
             assert.equal(res.status, 200);
-            assert.equal(res.text, "missing required field [title]");
+            assert.equal(res.text, "missing required field title");
             done();
           });
       });
@@ -89,7 +89,7 @@ suite('Functional Tests', function () {
           .get("/api/books/invalidID")
           .end(function (err, res) {
             assert.equal(res.status, 200);
-            assert.equal(res.text, "no book with this id exists");
+            assert.equal(res.text, "no book exists");
             done();
           });
       });
@@ -137,7 +137,7 @@ suite('Functional Tests', function () {
           .send({ comment: "Test Comment" })
           .end(function (err, res) {
             assert.equal(res.status, 200);
-            assert.equal(res.text, "no book with this id exists");
+            assert.equal(res.text, "no book exists");
             done();
           });
       });
@@ -160,7 +160,7 @@ suite('Functional Tests', function () {
           .delete("/api/books/invalidID")
           .end(function (err, res) {
             assert.equal(res.status, 200);
-            assert.equal(res.text, "no book with this id exists");
+            assert.equal(res.text, "no book exists");
             done();
           });
       });

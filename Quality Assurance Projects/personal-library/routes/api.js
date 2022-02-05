@@ -35,7 +35,7 @@ module.exports = function (app) {
       let title = req.body.title;
       //response will contain new book object including atleast _id and title
       if (!title) {
-        res.send("missing required field [title]");
+        res.send("missing required field title");
         return;
       }
       const newBook = new Book({ title, comments: [] });
@@ -69,7 +69,7 @@ module.exports = function (app) {
       //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
       Book.findById(bookID, (err, data) => {
         if (!data) {
-          res.send("no book with this id exists");
+          res.send("no book exists");
         } else {
           res.json({
             _id: bookID,
@@ -91,7 +91,7 @@ module.exports = function (app) {
       //json res format same as .get
       Book.findById(bookID, (err, book) => {
         if (!book) {
-          res.send("no book with this id exists");
+          res.send("no book exists");
         } else {
           book.comments.push(comment);
           book.save((err, data) => {
@@ -110,7 +110,7 @@ module.exports = function (app) {
       //if successful response will be 'delete successful'
       Book.findByIdAndRemove(bookID, (err, data) => {
         if (err || !data) {
-          res.send("no book with this id exists");
+          res.send("no book exists");
         } else {
           res.send("delete successful");
         }
