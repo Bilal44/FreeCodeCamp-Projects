@@ -45,6 +45,6 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 - ## Quality Assurance
     1. Metric-Imperial Converter :heavy_check_mark:
     2. Issue Tracker :heavy_check_mark:
-    3. Personal Library
+    3. Personal Library :heavy_check_mark:
     4. Sudoku Solver
     5. American British Translator
