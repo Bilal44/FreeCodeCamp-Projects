@@ -1,5 +1,7 @@
 class SudokuSolver {
-  validate(puzzleString) {}
+  validate(puzzleString) {
+    return puzzleString.length != 81 && /[^0-9.]/g.test(puzzleString);
+  }
 
   letterToNumber(row) {
     switch (row.toUpperCase()) {
@@ -150,12 +152,10 @@ class SudokuSolver {
   }
 
   solve(puzzleString) {
-    if (puzzleString.length != 81) {
+    if (!this.validate(puzzleString)) {
       return false;
     }
-    if (/[^0-9.]/g.test(puzzleString)) {
-      return false;
-    }
+
     let grid = this.transform(puzzleString);
     let solved = this.solveSuduko(grid, 0, 0);
     if (!solved) {
