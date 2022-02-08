@@ -6,10 +6,13 @@ let solver = new Solver();
 let validPuzzleInput = "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
 
 suite('UnitTests', () => {
-    suite("solver tests", function () {
-        test("1 - Logic handles a valid puzzle string of 81 characters", function () {
-            let completedPuzzle = "769235418851496372432178956174569283395842761628713549283657194516924837947381625";
-            assert.equal(solver.solve(validPuzzleInput), completedPuzzle);
-        });
+    test("1 - Logic handles a valid puzzle string of 81 characters", function () {
+        let completedPuzzle = "769235418851496372432178956174569283395842761628713549283657194516924837947381625";
+        assert.equal(solver.solve(validPuzzleInput), completedPuzzle);
+    });
+
+    test("2 - Logic handles a puzzle string with invalid characters (not 1-9 or `.`)", function () {
+        let inValidPuzzleInput = "..9..5.1.85.4....2432......X...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
+        assert.equal(solver.solve(inValidPuzzleInput), false);
     });
 });
