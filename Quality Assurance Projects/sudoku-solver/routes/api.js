@@ -8,19 +8,14 @@ module.exports = function (app) {
 
   app.route('/api/check')
     .post((req, res) => {
-      const { puzzle, coordinate, value } = req.body;
-      if (!puzzle || !coordinate || !value) {
+      const { coordinate, puzzle, value } = req.body;
+      if (!coordinate || !puzzle || !value) {
         res.json({ error: "Required field(s) missing" });
         return;
       }
       const row = coordinate.split("")[0];
       const column = coordinate.split("")[1];
-      if (
-        coordinate.length !== 2 ||
-        !/[a-i]/i.test(row) ||
-        !/[1-9]/i.test(column)
-      ) {
-        console.log("invalid coordinate :>> ");
+      if (coordinate.length !== 2 || !/[a-i]/i.test(row) || !/[1-9]/i.test(column)) {
         res.json({ error: "Invalid coordinate" });
         return;
       }
@@ -36,10 +31,12 @@ module.exports = function (app) {
         res.json({ error: "Invalid characters in puzzle" });
         return;
       }
+
       let validCol = solver.checkColPlacement(puzzle, row, column, value);
       let validReg = solver.checkRegionPlacement(puzzle, row, column, value);
       let validRow = solver.checkRowPlacement(puzzle, row, column, value);
       let conflicts = [];
+
       if (validCol && validReg && validRow) {
         res.json({ valid: true });
       } else {
