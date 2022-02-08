@@ -15,4 +15,9 @@ suite('UnitTests', () => {
         let inValidPuzzleInput = "..9..5.1.85.4....2432......X...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
         assert.equal(solver.solve(inValidPuzzleInput), false);
     });
+
+    test("3 - Logic handles a puzzle string that is not 81 characters in length", function () {
+        let inValidPuzzleInput = "9..5.1.8";
+        assert.equal(solver.solve(inValidPuzzleInput), false);
+    });
 });
