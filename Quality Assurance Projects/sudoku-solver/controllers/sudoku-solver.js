@@ -1,6 +1,6 @@
 class SudokuSolver {
   validate(puzzleString) {
-    return puzzleString.length != 81 && /[^0-9.]/g.test(puzzleString);
+    return puzzleString.length == 81 && !/[^0-9.]/g.test(puzzleString);
   }
 
   letterToNumber(row) {
@@ -162,7 +162,6 @@ class SudokuSolver {
       return false;
     }
     let solvedString = this.transformBack(solved);
-    console.log("solvedString :>> ", solvedString);
     return solvedString;
   }
 }
