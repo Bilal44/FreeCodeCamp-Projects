@@ -26,7 +26,7 @@ suite('UnitTests', () => {
     });
 
     test("5 - Logic handles an invalid row placement", function () {
-        assert.equal(solver.checkRowPlacement(validPuzzleInput, "A", "3", "6"), false);
+        assert.equal(solver.checkRowPlacement(validPuzzleInput, "A", "4", "9"), false);
     });
 
     test("6 - Logic handles a valid column placement", function () {
