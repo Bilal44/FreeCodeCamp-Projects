@@ -20,4 +20,8 @@ suite('UnitTests', () => {
         let inValidPuzzleInput = "9..5.1.8";
         assert.equal(solver.solve(inValidPuzzleInput), false);
     });
+
+    test("4 - Logic handles a valid row placement", function () {
+        assert.equal(solver.checkRowPlacement(validPuzzleInput, "A", "2", "6"), true);
+    });
 });
