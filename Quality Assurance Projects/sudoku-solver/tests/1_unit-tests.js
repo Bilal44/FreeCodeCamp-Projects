@@ -30,6 +30,10 @@ suite('UnitTests', () => {
     });
 
     test("6 - Logic handles a valid column placement", function () {
-        assert.equal(solver.checkColPlacement(validPuzzle, "A", "5", "2"), true);
+        assert.equal(solver.checkColPlacement(validPuzzleInput, "A", "5", "2"), true);
+    });
+
+    test("7 - Logic handles an invalid column placement", function () {
+        assert.equal(solver.checkColPlacement(validPuzzleInput, "A", "5", "6"), false);
     });
 });
