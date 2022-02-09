@@ -36,4 +36,8 @@ suite('UnitTests', () => {
     test("7 - Logic handles an invalid column placement", function () {
         assert.equal(solver.checkColPlacement(validPuzzleInput, "A", "5", "6"), false);
     });
+    
+    test("8 - Logic handles a valid region (3x3 grid) placement", function () {
+        assert.equal(solver.checkRegionPlacement(validPuzzleInput, "B", "3", "1"), true);
+    });
 });
