@@ -1,3 +1,4 @@
+const { expect } = require('chai');
 const chai = require('chai');
 const assert = chai.assert;
 
@@ -7,18 +8,17 @@ let validPuzzleInput = "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9..
 
 suite('UnitTests', () => {
     test("1 - Logic handles a valid puzzle string of 81 characters", function () {
-        let completedPuzzle = "769235418851496372432178956174569283395842761628713549283657194516924837947381625";
-        assert.equal(solver.solve(validPuzzleInput), completedPuzzle);
+        assert.isNotFalse(solver.validate(validPuzzleInput));
     });
 
     test("2 - Logic handles a puzzle string with invalid characters (not 1-9 or `.`)", function () {
-        let inValidPuzzleInput = "..9..5.1.85.4....2432......X...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
-        assert.equal(solver.solve(inValidPuzzleInput), false);
+        let inputWithInvalidCharacters = "..9..5.1.85.4....2432......X...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
+        assert.equal(solver.solve(inputWithInvalidCharacters), false);
     });
 
     test("3 - Logic handles a puzzle string that is not 81 characters in length", function () {
-        let inValidPuzzleInput = "9..5.1.8";
-        assert.equal(solver.solve(inValidPuzzleInput), false);
+        let inputNot81Characters = "9..5.1.8";
+        assert.equal(solver.solve(inputNot81Characters), false);
     });
 
     test("4 - Logic handles a valid row placement", function () {
@@ -55,9 +55,7 @@ suite('UnitTests', () => {
     });
 
     test("12 - Solver returns the the expected solution for an incomplete puzzzle", function () {
-        assert.equal(
-            solver.solve("..3..1...85.4....24........1...69.83.9.......62.51...9..............4.37.4.3..2.."),
-            "263751498859436172417982356174269583395847621628513749732195864581624937946378215"
-        );
+        let expectedSolution = "769235418851496372432178956174569283395842761628713549283657194516924837947381625";
+        assert.equal(solver.solve(validPuzzleInput), expectedSolution);
     });
 });
