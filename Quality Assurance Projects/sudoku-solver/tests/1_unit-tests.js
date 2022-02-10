@@ -48,4 +48,9 @@ suite('UnitTests', () => {
     test("10 - Valid puzzle strings pass the solver", function () {
         assert.equal(solver.validate(validPuzzleInput), true);
     });
+    
+    test("11 - Invalid puzzle strings fail the solver", function () {
+        let invalidPuzzleInput = "4..437.5794573";
+        assert.equal(solver.validate(invalidPuzzleInput), false);
+    });
 });
