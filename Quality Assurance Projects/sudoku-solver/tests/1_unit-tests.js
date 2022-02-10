@@ -53,4 +53,11 @@ suite('UnitTests', () => {
         let invalidPuzzleInput = "4..437.5794573";
         assert.equal(solver.validate(invalidPuzzleInput), false);
     });
+
+    test("12 - Solver returns the the expected solution for an incomplete puzzzle", function () {
+        assert.equal(
+            solver.solve("..3..1...85.4....24........1...69.83.9.......62.51...9..............4.37.4.3..2.."),
+            "263751498859436172417982356174269583395847621628513749732195864581624937946378215"
+        );
+    });
 });
