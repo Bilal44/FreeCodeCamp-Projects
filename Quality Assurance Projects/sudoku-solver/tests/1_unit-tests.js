@@ -8,50 +8,50 @@ let validPuzzleInput = "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9..
 
 suite('UnitTests', () => {
     test("1 - Logic handles a valid puzzle string of 81 characters", function () {
-        assert.isNotFalse(solver.validate(validPuzzleInput));
+        assert.isTrue(solver.validate(validPuzzleInput));
     });
 
     test("2 - Logic handles a puzzle string with invalid characters (not 1-9 or `.`)", function () {
         let inputWithInvalidCharacters = "..9..5.1.85.4....2432......X...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
-        assert.equal(solver.solve(inputWithInvalidCharacters), false);
+        assert.isFalse(solver.validate(inputWithInvalidCharacters));
     });
 
     test("3 - Logic handles a puzzle string that is not 81 characters in length", function () {
         let inputNot81Characters = "9..5.1.8";
-        assert.equal(solver.solve(inputNot81Characters), false);
+        assert.isFalse(solver.validate(inputNot81Characters));
     });
 
     test("4 - Logic handles a valid row placement", function () {
-        assert.equal(solver.checkRowPlacement(validPuzzleInput, "A", "2", "6"), true);
+        assert.isTrue(solver.checkRowPlacement(validPuzzleInput, "A", "2", "6"));
     });
 
     test("5 - Logic handles an invalid row placement", function () {
-        assert.equal(solver.checkRowPlacement(validPuzzleInput, "A", "4", "9"), false);
+        assert.isFalse(solver.checkRowPlacement(validPuzzleInput, "A", "4", "9"));
     });
 
     test("6 - Logic handles a valid column placement", function () {
-        assert.equal(solver.checkColPlacement(validPuzzleInput, "A", "5", "2"), true);
+        assert.isTrue(solver.checkColPlacement(validPuzzleInput, "A", "5", "2"));
     });
 
     test("7 - Logic handles an invalid column placement", function () {
-        assert.equal(solver.checkColPlacement(validPuzzleInput, "A", "5", "6"), false);
+        assert.isFalse(solver.checkColPlacement(validPuzzleInput, "A", "5", "6"));
     });
 
     test("8 - Logic handles a valid region (3x3 grid) placement", function () {
-        assert.equal(solver.checkRegionPlacement(validPuzzleInput, "B", "3", "1"), true);
+        assert.isTrue(solver.checkRegionPlacement(validPuzzleInput, "B", "3", "1"));
     });
 
     test("9 - Logic handles an invalid region (3x3 grid) placement", function () {
-        assert.equal(solver.checkRegionPlacement(validPuzzleInput, "A", "2", "8"), false);
+        assert.isFalse(solver.checkRegionPlacement(validPuzzleInput, "A", "2", "8"));
     });
 
     test("10 - Valid puzzle strings pass the solver", function () {
-        assert.equal(solver.validate(validPuzzleInput), true);
+        assert.isNotFalse(solver.solve(validPuzzleInput));
     });
     
     test("11 - Invalid puzzle strings fail the solver", function () {
         let invalidPuzzleInput = "4..437.5794573";
-        assert.equal(solver.validate(invalidPuzzleInput), false);
+        assert.isFalse(solver.solve(invalidPuzzleInput));
     });
 
     test("12 - Solver returns the the expected solution for an incomplete puzzzle", function () {
