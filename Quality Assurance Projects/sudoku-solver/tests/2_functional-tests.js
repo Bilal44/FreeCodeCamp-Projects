@@ -42,5 +42,16 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+
+        test("1.4 - Solve a puzzle with incorrect length: POST request to /api/solve", function (done) {
+            chai.request(server)
+                .post("/api/solve")
+                .send({puzzle: "..9..5.1.85.4..."})
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Expected puzzle to be 81 characters long");
+                    done();
+                });
+        });    
      });
 });
