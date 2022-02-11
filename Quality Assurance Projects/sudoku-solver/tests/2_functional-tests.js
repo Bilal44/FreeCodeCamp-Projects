@@ -20,5 +20,16 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+        
+        test("2- Solve a puzzle with missing puzzle string: POST request to /api/solve", function (done) {
+            chai.request(server)
+                .post("/api/solve")
+                .send({})
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Required field missing");
+                    done();
+                });
+        });
     });
 });
