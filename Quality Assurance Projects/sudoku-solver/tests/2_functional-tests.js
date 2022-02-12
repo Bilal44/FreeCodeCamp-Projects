@@ -77,5 +77,18 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+
+    
+        test("2.2 - Check a puzzle placement with single placement conflict: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: validPuzzleInput, coordinate: "A2", value: "8" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.isFalse(res.body.valid);
+                    assert.equal(res.body.conflict.length, 1);
+                    done();
+                });
+        });
     });
 });
