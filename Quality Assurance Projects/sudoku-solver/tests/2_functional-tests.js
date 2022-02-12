@@ -46,12 +46,23 @@ suite('Functional Tests', () => {
         test("1.4 - Solve a puzzle with incorrect length: POST request to /api/solve", function (done) {
             chai.request(server)
                 .post("/api/solve")
-                .send({puzzle: "..9..5.1.85.4..."})
+                .send({ puzzle: "..9..5.1.85.4..." })
                 .end(function (err, res) {
                     assert.equal(res.status, 200);
                     assert.equal(res.body.error, "Expected puzzle to be 81 characters long");
                     done();
                 });
-        });    
-     });
+        });
+
+        test("1.5 - Solve a puzzle that cannot be solved: POST request to /api/solve", function (done) {
+            chai.request(server)
+                .post("/api/solve")
+                .send({ puzzle: ".99..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1955....4.37.4.3..6.." })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Puzzle cannot be solved");
+                    done();
+                });
+        });
+    });
 });
