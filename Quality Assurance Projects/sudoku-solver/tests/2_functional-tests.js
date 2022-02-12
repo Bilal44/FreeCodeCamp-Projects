@@ -65,4 +65,17 @@ suite('Functional Tests', () => {
                 });
         });
     });
+
+    suite('2 - /api/check End Point Tests', () => {
+        test("2.1 - Check a puzzle placement with all fields: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: validPuzzleInput, coordinate: "A2", value: "6" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.isTrue(res.body.valid);
+                    done();
+                });
+        });
+    });
 });
