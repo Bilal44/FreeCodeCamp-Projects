@@ -114,5 +114,16 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+
+        test("2.5 - Check a puzzle placement with missing required fields: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: validPuzzleInput, value: "9" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Required field(s) missing");
+                    done();
+                });
+        });
     });
 });
