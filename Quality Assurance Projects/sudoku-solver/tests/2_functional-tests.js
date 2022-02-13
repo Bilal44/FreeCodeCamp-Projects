@@ -102,5 +102,17 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+
+        test("2.4 - Check a puzzle placement with all placement conflicts: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: validPuzzleInput, coordinate: "A1", value: "5" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.isFalse(res.body.valid);
+                    assert.equal(res.body.conflict.length, 3);
+                    done();
+                });
+        });
     });
 });
