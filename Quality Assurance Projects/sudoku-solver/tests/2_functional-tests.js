@@ -78,7 +78,7 @@ suite('Functional Tests', () => {
                 });
         });
 
-    
+
         test("2.2 - Check a puzzle placement with single placement conflict: POST request to /api/check", function (done) {
             chai.request(server)
                 .post("/api/check")
@@ -122,6 +122,17 @@ suite('Functional Tests', () => {
                 .end(function (err, res) {
                     assert.equal(res.status, 200);
                     assert.equal(res.body.error, "Required field(s) missing");
+                    done();
+                });
+        });
+
+        test("2.6 - Check a puzzle placement with invalid characters: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: "..9..5.1.85.4....2432......X...69.83.9.....6.62.71...9......1945....4.37.4.3..6..", coordinate: "A2", value: "6" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Invalid characters in puzzle");
                     done();
                 });
         });
