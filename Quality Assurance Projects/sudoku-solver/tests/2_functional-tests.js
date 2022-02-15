@@ -147,5 +147,16 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+        
+        test("2.8 - Check a puzzle placement with invalid placement coordinate: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: validPuzzleInput, coordinate: "A10", value: "3" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Invalid coordinate");
+                    done();
+                });
+        });
     });
 });
