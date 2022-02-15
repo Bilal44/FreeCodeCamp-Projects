@@ -136,7 +136,7 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
-        
+
         test("2.7 - Check a puzzle placement with incorrect length: POST request to /api/check", function (done) {
             chai.request(server)
                 .post("/api/check")
@@ -147,7 +147,7 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
-        
+
         test("2.8 - Check a puzzle placement with invalid placement coordinate: POST request to /api/check", function (done) {
             chai.request(server)
                 .post("/api/check")
@@ -155,6 +155,17 @@ suite('Functional Tests', () => {
                 .end(function (err, res) {
                     assert.equal(res.status, 200);
                     assert.equal(res.body.error, "Invalid coordinate");
+                    done();
+                });
+        });
+
+        test("2.9 - Check a puzzle placement with invalid placement value: POST request to /api/check", function (done) {
+            chai.request(server)
+                .post("/api/check")
+                .send({ puzzle: validPuzzleInput, coordinate: "A2", value: "X" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "Invalid value");
                     done();
                 });
         });
