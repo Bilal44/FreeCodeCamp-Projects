@@ -28,6 +28,12 @@ class SudokuSolver {
     }
   }
 
+  checkForSameNumber(puzzleString, row, col, value) {
+    let grid = this.transform(puzzleString);
+    row = this.letterToNumber(row);
+    if (grid[parseInt(row) - 1][parseInt(col) - 1] == parseInt(value)) return true;
+  }
+
   checkRowPlacement(puzzleString, row, column, value) {
     let grid = this.transform(puzzleString);
     row = this.letterToNumber(row);
@@ -95,19 +101,13 @@ class SudokuSolver {
   }
 
   isSafe(grid, row, col, num) {
-    // Check if we find the same num
-    // in the similar row , we
-    // return false
+    // Check if we find the same num in the similar row, return false
     for (let x = 0; x <= 8; x++) if (grid[row][x] == num) return false;
 
-    // Check if we find the same num
-    // in the similar column ,
-    // we return false
+    // Check if we find the same num in the similar column, return false
     for (let x = 0; x <= 8; x++) if (grid[x][col] == num) return false;
 
-    // Check if we find the same num
-    // in the particular 3*3
-    // matrix, we return false
+    // Check if we find the same num in the particular 3*3 matrix, return false
     let startRow = row - (row % 3),
       startCol = col - (col % 3);
     for (let i = 0; i < 3; i++)
