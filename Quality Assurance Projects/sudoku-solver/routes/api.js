@@ -14,8 +14,8 @@ module.exports = function (app) {
         return;
       }
       const row = coordinate.split("")[0];
-      const column = coordinate.split("")[1];
-      if (coordinate.length !== 2 || !/[a-i]/i.test(row) || !/[1-9]/i.test(column)) {
+      const col = coordinate.split("")[1];
+      if (coordinate.length !== 2 || !/[a-i]/i.test(row) || !/[1-9]/i.test(col)) {
         res.json({ error: "Invalid coordinate" });
         return;
       }
@@ -32,19 +32,20 @@ module.exports = function (app) {
         return;
       }
 
-      let validCol = solver.checkColPlacement(puzzle, row, column, value);
-      let validReg = solver.checkRegionPlacement(puzzle, row, column, value);
-      let validRow = solver.checkRowPlacement(puzzle, row, column, value);
+      let isSameNumber = solver.checkForSameNumber(puzzle, row, col, value);
+      let validCol = solver.checkColPlacement(puzzle, row, col, value);
+      let validReg = solver.checkRegionPlacement(puzzle, row, col, value);
+      let validRow = solver.checkRowPlacement(puzzle, row, col, value);
       let conflicts = [];
 
-      if (validCol && validReg && validRow) {
+      if (isSameNumber || (validCol && validReg && validRow)) {
         res.json({ valid: true });
       } else {
         if (!validRow) {
           conflicts.push("row");
         }
         if (!validCol) {
-          conflicts.push("column");
+          conflicts.push("col");
         }
         if (!validReg) {
           conflicts.push("region");
