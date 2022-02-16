@@ -46,5 +46,5 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     1. Metric-Imperial Converter :heavy_check_mark:
     2. Issue Tracker :heavy_check_mark:
     3. Personal Library :heavy_check_mark:
-    4. Sudoku Solver
+    4. Sudoku Solver :heavy_check_mark:
     5. American British Translator
