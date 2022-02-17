@@ -89,4 +89,11 @@ class Translator {
     }
 }
 
+const reverseDict = (obj) => {
+    return Object.assign(
+      {},
+      ...Object.entries(obj).map(([k, v]) => ({ [v]: k }))
+    );
+  };
+
 module.exports = Translator;
