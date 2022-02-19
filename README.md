@@ -47,4 +47,6 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     2. Issue Tracker :heavy_check_mark:
     3. Personal Library :heavy_check_mark:
     4. Sudoku Solver :heavy_check_mark:
-    5. American British Translator
+    5. American British Translator :heavy_check_mark:
+
+<a href="https://www.freecodecamp.org/certification/bilal44/quality-assurance-v7" target="_blank" title="Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-QA-Certificate.PNG" text="Quality Assurance Certificate" width="75%" /></p></a>
