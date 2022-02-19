@@ -53,5 +53,16 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+
+        test("1.5 - Translation with empty text: POST request to `/api/translate`", function (done) {
+            chai.request(server)
+                .post("/api/translate")
+                .send({ text: "", locale: "american-to-british" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.error, "No text to translate");
+                    done();
+                });
+        });
     });
 });
