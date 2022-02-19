@@ -133,7 +133,7 @@ suite('Unit Tests', () => {
 
         test("2.10 - Translate `Tea time is usually around 4 or 4.30.` to American English", function () {
             assert.equal(translator.toAmericanEnglish("Tea time is usually around 4 or 4.30.")[0],
-                "Tea time is usually around 4 or 4:30."F
+                "Tea time is usually around 4 or 4:30."
             );
         });
     });
