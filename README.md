@@ -50,3 +50,6 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     5. American British Translator :heavy_check_mark:
 
 <a href="https://www.freecodecamp.org/certification/bilal44/quality-assurance-v7" target="_blank" title="Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-QA-Certificate.PNG" text="Quality Assurance Certificate" width="75%" /></p></a>
+    
+            6. Stock Price Checker	
+            7. Anonymous Message Board
