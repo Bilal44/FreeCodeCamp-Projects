@@ -152,7 +152,7 @@ suite('Unit Tests', () => {
         });
 
         test("3.3 - Highlight translation in `We watched the footie match for a while.`", function () {
-            assert.equal(translator.toAmericanEnglish( "We watched the footie match for a while.")[1],
+            assert.equal(translator.toAmericanEnglish("We watched the footie match for a while.")[1],
                 'We watched the <span class="highlight">soccer</span> match for a while.'
             );
         });
