@@ -64,5 +64,16 @@ suite('Functional Tests', () => {
                     done();
                 });
         });
+
+        test("1.6 - Translation with text that needs no translation: POST request to `/api/translate`", function (done) {
+            chai.request(server)
+                .post("/api/translate")
+                .send({ text: "This text requires no translation.", locale: "british-to-american" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.translation, "Everything looks good to me!");
+                    done();
+                });
+        });
     });
 });
