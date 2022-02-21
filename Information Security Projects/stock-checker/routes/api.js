@@ -10,6 +10,27 @@ module.exports = function (app) {
     
 };
 
+async function createNewStock(stock, like, ip) {
+  const newStock = new StockModel({ symbol: stock, likes: like ? [ip] : [] });
+  return await newStock.save();
+}
+
+async function findStock(stock) {
+  return await StockModel.findOne({ symbol: stock }).exec();
+}
+
+async function saveStock(stock, like, ip) {
+  const found = await findStock(stock);
+  if (!found) {
+    return await createNewStock(stock, like, ip);
+  } else {
+    if (like && found.likes.indexOf(ip) === -1) {
+      found.likes.push(ip);
+    }
+    return await found.save();
+  }
+}
+
 async function getStock(stock) {
   const response = await fetch(
     'https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${stock}/quote'
