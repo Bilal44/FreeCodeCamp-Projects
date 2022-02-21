@@ -1,10 +1,11 @@
 'use strict';
 const fetch = require("node-fetch");
+const StockModel = require("../models").Stock;
 
 module.exports = function (app) {
 
   app.route('/api/stock-prices')
-    .get(function (req, res) {
+    .get(async function (req, res) {
       const { stock, like } = req.query;
 
       // Resolve single stock query
@@ -51,7 +52,7 @@ async function saveStock(stock, like, ip) {
 
 async function getStock(stock) {
   const response = await fetch(
-    'https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${stock}/quote'
+    `https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${stock}/quote`
   );
   const { symbol, latestPrice } = await response.json();
   return { symbol, latestPrice };
