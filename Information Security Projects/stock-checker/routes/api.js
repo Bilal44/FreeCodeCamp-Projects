@@ -25,6 +25,35 @@ module.exports = function (app) {
             likes: data.likes.length,
           },
         });
+      } else { // Resolve two stock query
+        const { symbol, latestPrice } = await getStock(stock[0]);
+        const { symbol: symbolTwo, latestPrice: latestPrice2 } = await getStock(stock[1]);
+
+        const stockOne = await saveStock(stock[0], like, req.ip);
+        const stockTwo = await saveStock(stock[1], like, req.ip);
+
+        let stockData = [];
+        if (!symbol) {
+          stockData.push({ rel_likes: stockOne.likes.length - stockTwo.likes.length });
+        } else {
+          stockData.push({
+            stock: symbol,
+            price: latestPrice,
+            rel_likes: stockOne.likes.length - stockTwo.likes.length,
+          });
+        }
+
+        if (!symbolTwo) {
+          stockData.push({ rel_likes: stockTwo.likes.length - stockOne.likes.length });
+        } else {
+          stockData.push({
+            stock: symbolTwo,
+            price: latestPrice2,
+            rel_likes: stockTwo.likes.length - stockOne.likes.length,
+          });
+        }
+
+        res.json({ stockData });
       }
     });
 };
