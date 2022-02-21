@@ -4,10 +4,28 @@ const fetch = require("node-fetch");
 module.exports = function (app) {
 
   app.route('/api/stock-prices')
-    .get(function (req, res){
-      
+    .get(function (req, res) {
+      const { stock, like } = req.query;
+
+      // Resolve single stock query
+      if (!Array.isArray(stock)) {
+        const { symbol, latestPrice } = await getStock(stock);
+        if (!symbol) {
+          res.json({ stockData: { likes: like ? 1 : 0 } });
+          return;
+        }
+
+        const data = await saveStock(symbol, like, req.ip);
+
+        res.json({
+          stockData: {
+            stock: symbol,
+            price: latestPrice,
+            likes: data.likes.length,
+          },
+        });
+      }
     });
-    
 };
 
 async function createNewStock(stock, like, ip) {
