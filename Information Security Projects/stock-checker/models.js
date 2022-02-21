@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const StockSchema = new Schema({
-    name: {type: String, required: true},
-    likes: {type: Number, default: 0},
-    ips: [String]
+    symbol: {type: String, required: true},
+    likes: {type: [String], default: []},
 });
 const Stock = mongoose.model("Stock", StockSchema);
 
