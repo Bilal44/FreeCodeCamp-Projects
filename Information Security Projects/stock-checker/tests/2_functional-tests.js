@@ -50,5 +50,21 @@ suite('Functional Tests', function () {
                     done();
                 });
         });
+        
+        test("1.4 - Viewing two stocks: GET request to `/api/stock-prices/`", function (done) {
+            chai
+                .request(server)
+                .get("/api/stock-prices/")
+                .set("content-type", "application/json")
+                .query({ stock: ["AAPL", "AMZN"] })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.body.stockData[0].stock, "AAPL");
+                    assert.equal(res.body.stockData[1].stock, "AMZN");
+                    assert.exists(res.body.stockData[0].price);
+                    assert.exists(res.body.stockData[1].price);
+                    done();
+                });
+        });
     });
 });
