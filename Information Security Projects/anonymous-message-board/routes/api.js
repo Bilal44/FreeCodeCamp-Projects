@@ -28,7 +28,7 @@ module.exports = function (app) {
 
       thread.save((err, data) => {
         if (err || !data) {
-          res.send("An error occured while saving the post.");
+          res.send("an error occured while saving the post");
         } else {
           res.json(thread);
         }
@@ -42,6 +42,29 @@ module.exports = function (app) {
         (err, data) => {
           if (!err && data) {
             res.json('success')
+          }
+        });
+    })
+
+    .delete((req, res) => {
+      ThreadModel.findById(
+        req.body.thread_id,
+        (err, data) => {
+          if (!err && data) {
+            if (data.delete_password === req.body.delete_password) {
+              ThreadModel.findByIdAndRemove(
+                req.body.thread_id,
+                (err, data) => {
+                  if (!err && data) {
+                    res.json('success')
+                  }
+                }
+              )
+            } else {
+              res.json('incorrect password')
+            }
+          } else {
+            res.json('thread not found')
           }
         });
     })
