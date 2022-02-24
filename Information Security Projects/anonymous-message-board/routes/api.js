@@ -35,6 +35,18 @@ module.exports = function (app) {
       });
     })
 
+    .put((req, res) => {
+      ThreadModel.findByIdAndUpdate(
+        req.body.thread_id,
+        { reported: true },
+        (err, data) => {
+          if (!err && data) {
+            res.json('success')
+          }
+        });
+    })
+
+
   app.route('/api/replies/:board');
 
 };
