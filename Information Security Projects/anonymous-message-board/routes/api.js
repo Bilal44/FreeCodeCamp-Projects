@@ -122,4 +122,31 @@ module.exports = function (app) {
           }
         })
     })
+
+    .put((req, res) => {
+      ThreadModel.findById(
+        req.body.thread_id,
+        (err, thread) => {
+          if (err || !thread) {
+            res.json('thread not found')
+          } else {
+            let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
+            if (replyIndex === -1) {
+              res.json('reply not found in the thread');
+              return;
+            } else {
+              thread.replies[replyIndex].reported = true
+            }
+
+            thread.save((err, data) => {
+              if (err || !data) {
+                res.json('an error occured while updating the reply')
+              } else {
+                res.json('success')
+              }
+            })
+          }
+        }
+      )
+    })
 };
