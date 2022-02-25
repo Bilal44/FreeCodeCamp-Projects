@@ -31,7 +31,7 @@ module.exports = function (app) {
               })
             })
           }
-          
+
           res.json(threads);
         });
     })
@@ -61,12 +61,8 @@ module.exports = function (app) {
         req.body.thread_id,
         { reported: true },
         (err, data) => {
-          if (err || !data) {
-            res.send('an error occured while updating the thread')
-          } else {
             res.send('reported')
-          }
-        });
+          });
     })
 
     .delete((req, res) => {
@@ -184,7 +180,7 @@ module.exports = function (app) {
 
             thread.save((err, data) => {
               if (err || !data) {
-                res.send('an error occured while updating the reply')
+                res.send('an error occured while deleting the reply')
               } else {
                 res.send('success')
               }
