@@ -18,7 +18,7 @@ module.exports = function (app) {
     })
 
     .post((req, res) => {
-      const { board, text, delete_password } = req.body;
+      let { text, board, delete_password } = req.body;
 
       if (!board) {
         board = req.params.board;
@@ -48,7 +48,7 @@ module.exports = function (app) {
           if (err || !data) {
             res.json('an error occured while updating the thread')
           } else {
-            res.json('success')
+            res.json('reported')
           }
         });
     })
@@ -116,7 +116,7 @@ module.exports = function (app) {
         { $push: { replies: reply } },
         (err, data) => {
           if (err || !data) {
-            res.send("an error occured while posting the reply");
+            res.send("an error occured while posting the reply")
           } else {
             res.json('success')
           }
@@ -132,10 +132,37 @@ module.exports = function (app) {
           } else {
             let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
             if (replyIndex === -1) {
-              res.json('reply not found in the thread');
+              res.json('reply not found in the thread')
               return;
             } else {
               thread.replies[replyIndex].reported = true
+            }
+
+            thread.save((err, data) => {
+              if (err || !data) {
+                res.json('an error occured while updating the reply')
+              } else {
+                res.json('reported');
+              }
+            })
+          }
+        }
+      )
+    })
+    
+    .delete((req, res) => {
+      ThreadModel.findById(
+        req.body.thread_id,
+        (err, thread) => {
+          if (err || !thread) {
+            res.json('thread not found')
+          } else {
+            let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
+            if (replyIndex === -1) {
+              res.json('reply not found in the thread')
+              return;
+            } else {
+              thread.replies[replyIndex].text = [deleted];
             }
 
             thread.save((err, data) => {
