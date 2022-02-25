@@ -8,6 +8,9 @@ module.exports = function (app) {
   app.route('/api/threads/:board')
     .get((req, res) => {
       ThreadModel.find({ board: req.params.board })
+        .select('-reported -delete_password')
+        .sort({ bumped_on: 'desc' })
+        .limit(10)
         .exec((err, threads) => {
           if (err || !threads) {
             res.send('an error occured')
@@ -18,11 +21,8 @@ module.exports = function (app) {
     })
 
     .post((req, res) => {
-      let { text, board, delete_password } = req.body;
-
-      if (!board) {
-        board = req.params.board;
-      }
+      const { text, delete_password } = req.body;
+      let board = req.params.board;
 
       const thread = new ThreadModel({
         text: text,
@@ -131,7 +131,7 @@ module.exports = function (app) {
           if (err || !thread) {
             res.send('thread not found')
           } else {
-            let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
+            let replyIndex = thread.replies.map(function (r) { return r.id; }).indexOf(req.body.reply_id);
             if (replyIndex === -1) {
               res.send('reply not found in the thread')
               return;
@@ -150,7 +150,7 @@ module.exports = function (app) {
         }
       )
     })
-    
+
     .delete((req, res) => {
       ThreadModel.findById(
         req.body.thread_id,
@@ -158,7 +158,7 @@ module.exports = function (app) {
           if (err || !thread) {
             res.send('thread not found')
           } else {
-            let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
+            let replyIndex = thread.replies.map(function (r) { return r.id; }).indexOf(req.body.reply_id);
             if (replyIndex === -1) {
               res.send('reply not found in the thread')
               return;
