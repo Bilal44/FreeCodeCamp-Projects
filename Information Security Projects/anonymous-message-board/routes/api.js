@@ -14,9 +14,25 @@ module.exports = function (app) {
         .exec((err, threads) => {
           if (err || !threads) {
             res.send('an error occured')
-          } else {
-            res.json(threads);
+          } else if (threads.length > 0) {
+            threads.forEach((thread) => {
+
+              // Sort replies by creation date
+              thread.replies.sort((reply1, reply2) =>
+                reply2.created_on - reply1.created_on
+              )
+
+              // Limit replies to maximum of 3 per thread
+              thread.replies = thread.replies.slice(0, 3);
+
+              thread.replies.forEach((reply) => {
+                reply.delete_password = undefined
+                reply.reported = undefined
+              })
+            })
           }
+          
+          res.json(threads);
         });
     })
 
@@ -89,13 +105,13 @@ module.exports = function (app) {
             data.delete_password = undefined
             data.reported = undefined
 
-            // Add total number of replies
-            data['replycount'] = data.replies.length
-
             // Sort replies by creation date
-            data.replies.sort((thread1, thread2) => {
-              thread2.created_on - thread1.created_on
-            })
+            data.replies.sort((reply1, reply2) =>
+              reply2.created_on - reply1.created_on
+            )
+
+            // Limit replies to maximum of 3 per thread
+            data.replies = data.replies.slice(0, 3);
 
             // remove delete_password and reported fields from replies
             data.replies.forEach((reply) => {
