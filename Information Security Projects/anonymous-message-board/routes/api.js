@@ -1,5 +1,6 @@
 'use strict';
 const ThreadModel = require("../models").Thread;
+const ReplyModel = require("../models").Reply;
 
 module.exports = function (app) {
 
@@ -67,7 +68,7 @@ module.exports = function (app) {
             res.json('thread not found')
           }
         });
-    })
+    });
 
   // Replies API end points
   app.route('/api/replies/:board')
@@ -99,4 +100,17 @@ module.exports = function (app) {
       )
     })
 
+    .post((req, res) => {
+      let reply = new ReplyModel(req.body)
+      ThreadModel.findByIdAndUpdate(
+        req.body.thread_id,
+        { $push: { replies: reply } },
+        (err, data) => {
+          if (err || !data) {
+            res.send("an error occured while posting the reply");
+          } else {
+            res.json('success')
+          }
+        })
+    })
 };
