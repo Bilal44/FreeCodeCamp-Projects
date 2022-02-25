@@ -4,6 +4,7 @@ require('./db');
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
+const helmet      = require('helmet');
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
@@ -17,6 +18,15 @@ app.use(cors({origin: '*'})); //For FCC testing purposes only
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Only allow iframes loading on website's own pages
+app.use(helmet.frameguard());
+
+// Only allow the site to send the referrer for own pages
+app.use(helmet({ referrerPolicy: { policy: "same-origin" } }));
+
+// Disallow DNS prefetching
+app.use(helmet.dnsPrefetchControl());
 
 //Sample front-end
 app.route('/b/:board/')
