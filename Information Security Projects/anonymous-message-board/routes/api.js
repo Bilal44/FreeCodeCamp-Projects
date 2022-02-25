@@ -10,7 +10,7 @@ module.exports = function (app) {
       ThreadModel.find({ board: req.params.board })
         .exec((err, threads) => {
           if (err || !threads) {
-            res.json('an error occured')
+            res.send('an error occured')
           } else {
             res.json(threads);
           }
@@ -46,9 +46,9 @@ module.exports = function (app) {
         { reported: true },
         (err, data) => {
           if (err || !data) {
-            res.json('an error occured while updating the thread')
+            res.send('an error occured while updating the thread')
           } else {
-            res.json('reported')
+            res.send('reported')
           }
         });
     })
@@ -58,20 +58,20 @@ module.exports = function (app) {
         req.body.thread_id,
         (err, data) => {
           if (err || !data) {
-            res.json('thread not found')
+            res.send('thread not found')
           } else {
             if (data.delete_password === req.body.delete_password) {
               ThreadModel.findByIdAndRemove(
                 req.body.thread_id,
                 (err, data) => {
                   if (err || !data) {
-                    res.json('an error occured while deleting the thread')
+                    res.send('an error occured while deleting the thread')
                   } else {
-                    res.json('success')
+                    res.send('success')
                   }
                 });
             } else {
-              res.json('incorrect password')
+              res.send('incorrect password')
             }
           }
         });
@@ -84,7 +84,7 @@ module.exports = function (app) {
         { board: req.params.board },
         (err, data) => {
           if (err || !data) {
-            res.json('thread not found')
+            res.send('thread not found')
           } else {
             data.delete_password = undefined
             data.reported = undefined
@@ -114,11 +114,12 @@ module.exports = function (app) {
       ThreadModel.findByIdAndUpdate(
         req.body.thread_id,
         { $push: { replies: reply } },
+        { bumped_on: new Date() },
         (err, data) => {
           if (err || !data) {
             res.send("an error occured while posting the reply")
           } else {
-            res.json('success')
+            res.send('success')
           }
         })
     })
@@ -128,11 +129,11 @@ module.exports = function (app) {
         req.body.thread_id,
         (err, thread) => {
           if (err || !thread) {
-            res.json('thread not found')
+            res.send('thread not found')
           } else {
             let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
             if (replyIndex === -1) {
-              res.json('reply not found in the thread')
+              res.send('reply not found in the thread')
               return;
             } else {
               thread.replies[replyIndex].reported = true
@@ -140,9 +141,9 @@ module.exports = function (app) {
 
             thread.save((err, data) => {
               if (err || !data) {
-                res.json('an error occured while updating the reply')
+                res.send('an error occured while updating the reply')
               } else {
-                res.json('reported');
+                res.send('reported');
               }
             })
           }
@@ -155,21 +156,21 @@ module.exports = function (app) {
         req.body.thread_id,
         (err, thread) => {
           if (err || !thread) {
-            res.json('thread not found')
+            res.send('thread not found')
           } else {
             let replyIndex = thread.replies.map(function(r) { return r.id; }).indexOf(req.body.reply_id);
             if (replyIndex === -1) {
-              res.json('reply not found in the thread')
+              res.send('reply not found in the thread')
               return;
             } else {
-              thread.replies[replyIndex].text = [deleted];
+              thread.replies[replyIndex].text = '[deleted]';
             }
 
             thread.save((err, data) => {
               if (err || !data) {
-                res.json('an error occured while updating the reply')
+                res.send('an error occured while updating the reply')
               } else {
-                res.json('success')
+                res.send('success')
               }
             })
           }
