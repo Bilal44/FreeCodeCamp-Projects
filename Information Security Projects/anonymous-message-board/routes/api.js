@@ -69,7 +69,34 @@ module.exports = function (app) {
         });
     })
 
+  // Replies API end points
+  app.route('/api/replies/:board')
+    .get((req, res) => {
+      ThreadModel.findById(
+        req.query.thread_id,
+        (err, data) => {
+          if (!err && data) {
+            thread.delete_password = undefined
+            thread.reported = undefined
 
-  app.route('/api/replies/:board');
+            // Add total number of replies
+            thread['replycount'] = thread.replies.length
+
+            // Sort replies by creation date
+            thread.replies.sort((thread1, thread2) => {
+              thread2.created_on - thread1.created_on
+            })
+
+            // remove delete_password and reported fields from replies
+            thread.replies.forEach((reply) => {
+              reply.delete_password = undefined
+              reply.reported = undefined
+            })
+
+            res.json(thread)
+          }
+        }
+      )
+    })
 
 };
