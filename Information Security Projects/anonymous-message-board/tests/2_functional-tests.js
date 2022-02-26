@@ -155,4 +155,20 @@ suite('Functional Tests', function () {
                 });
         });
     });
+
+    // Functional test to test `/api/threads/{board}` DELETE end point
+    suite("3 - `/api/threads/{board}` Functional Tests", function () {
+        test("3.1 - Deleting a thread with the correct password: DELETE Request Test", function (done) {
+            chai
+                .request(server)
+                .delete("/api/threads/test-board")
+                .set("content-type", "application/json")
+                .send({ thread_id: threadID, delete_password: "pass" })
+                .end(function (err, res) {
+                    assert.equal(res.status, 200);
+                    assert.equal(res.text, "success");
+                    done();
+                });
+        });
+    });
 });
