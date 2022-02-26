@@ -175,18 +175,24 @@ module.exports = function (app) {
               res.send('reply not found in the thread')
               return;
             } else {
-              thread.replies[replyIndex].text = '[deleted]';
+              let reply = thread.replies[replyIndex];
+              if (reply.delete_password !== req.body.delete_password) {
+                res.send('incorrect password')
+                return;
+              } else {
+                reply.text = '[deleted]';
+              }
             }
 
-            thread.save((err, data) => {
-              if (err || !data) {
-                res.send('an error occured while deleting the reply')
-              } else {
-                res.send('success')
-              }
-            })
+              thread.save((err, data) => {
+                if (err || !data) {
+                  res.send('an error occured while deleting the reply')
+                } else {
+                  res.send('success')
+                }
+              })
+            }
           }
-        }
       )
     })
 };
