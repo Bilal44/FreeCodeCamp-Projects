@@ -61,8 +61,8 @@ module.exports = function (app) {
         req.body.thread_id,
         { reported: true },
         (err, data) => {
-            res.send('reported')
-          });
+          res.send('reported')
+        });
     })
 
     .delete((req, res) => {
@@ -125,13 +125,13 @@ module.exports = function (app) {
       let reply = new ReplyModel(req.body)
       ThreadModel.findByIdAndUpdate(
         req.body.thread_id,
-        { $push: { replies: reply } },
-        { bumped_on: new Date() },
+        { $push: { replies: reply }, bumped_on: new Date() },
+        { new: true },
         (err, data) => {
           if (err || !data) {
             res.send("an error occured while posting the reply")
           } else {
-            res.send('success')
+            res.json(data)
           }
         })
     })
