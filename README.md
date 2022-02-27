@@ -51,5 +51,7 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 
 <a href="https://www.freecodecamp.org/certification/bilal44/quality-assurance-v7" target="_blank" title="Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-QA-Certificate.PNG" text="Quality Assurance Certificate" width="75%" /></p></a>
     
-            6. Stock Price Checker :heavy_check_mark:
-            7. Anonymous Message Board
+           6. Stock Price Checker :heavy_check_mark:
+           7. Anonymous Message Board :heavy_check_mark:
+
+<a href="https://www.freecodecamp.org/certification/bilal44/information-security-and-quality-assurance" target="_blank" title="Legacy Information Security and Quality Assurance"><p align="center"><img src="./Certificate blob/FCC-LQ-Certificate.PNG" text="Legacy Information Security and Quality Assurance" width="75%" /></p></a>
