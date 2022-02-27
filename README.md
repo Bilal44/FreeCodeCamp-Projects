@@ -1,6 +1,8 @@
 # FreeCodeCamp Projects
 Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online course
 
+<a href="https://www.freecodecamp.org/certification/bilal44/full-stack" target="_blank" title="Full Stack Certificate"><p align="center"><img src="./Certificate blob/FCC-FS-Certificate.PNG" text="Full Stack Certificate" /></p></a>
+
 - ## FCC Microservice API Projects ([GitHub Link](https://github.com/Bilal44/FCC-Microservice-API-Projects))
 
     1. Timestamp Microservice :heavy_check_mark:
@@ -54,4 +56,4 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
            6. Stock Price Checker :heavy_check_mark:
            7. Anonymous Message Board :heavy_check_mark:
 
-<a href="https://www.freecodecamp.org/certification/bilal44/information-security-and-quality-assurance" target="_blank" title="Legacy Information Security and Quality Assurance"><p align="center"><img src="./Certificate blob/FCC-LQ-Certificate.PNG" text="Legacy Information Security and Quality Assurance" width="75%" /></p></a>
+<a href="https://www.freecodecamp.org/certification/bilal44/information-security-and-quality-assurance" target="_blank" title="Legacy Information Security and Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-LQ-Certificate.PNG" text="Legacy Information Security and Quality Assurance Certificate" width="75%" /></p></a>
