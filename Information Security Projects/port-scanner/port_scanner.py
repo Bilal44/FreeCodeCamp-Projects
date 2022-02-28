@@ -4,12 +4,14 @@ from common_ports import ports_and_services
 
 def get_open_ports(target, port_range, verbose=False):
     open_ports = []
-
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(1)
     
+    if target[0].isdigit():
+        isIP = True
+    else:
+        isIP = False    
+
     try:
-      target = socket.gethostbyname(target)
+      targetIP = socket.gethostbyname(target)
     except:
       regex = re.compile("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$")
       result = regex.match(target)
@@ -32,10 +34,18 @@ def get_open_ports(target, port_range, verbose=False):
         
     response = open_ports
 
-    if (verbose):
-      response = "Open ports for " + target
+    if verbose:
+      if isIP:
+         target = socket.gethostbyaddr(target)[0]
+      
+      targetIP = f"{target} ({targetIP})"
+      response = f"Open ports for {targetIP}\nPORT     SERVICE\n"
+      space_length = 9 - len(str(port))
+      
       for port in open_ports:
         service = ports_and_services.get(port)
-        response += "\nPORT     SERVICE\n"+ str(port)+ "      " + service
+        response += str(port) + space_length * ' ' + service
+        if open_ports[len(open_ports) - 1] != port:
+          response += "\n"
 
     return(response)
