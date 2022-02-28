@@ -17,15 +17,16 @@ def get_open_ports(target, port_range):
       else:
         return "Error: Invalid hostname" 
 
-    for port in port_range:
+    for port in range(port_range[0], port_range[1] + 1):
       try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(0.1)
         result = sock.connect_ex((target, port))
         if result == 0: 
           open_ports.append(port)
       except Exception as ex:
         print(ex)
         continue
-
-    sock.close()
+      sock.close()
 
     return(open_ports)
