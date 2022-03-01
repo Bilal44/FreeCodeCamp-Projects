@@ -21,5 +21,12 @@ for salt in salts_file:
     b = convert_to_sha1(salt, password)
     salted_hash_collection[b] = password.strip()
 
-def crack_sha1_hash(hash):
+def crack_sha1_hash(hash, use_salts=False):
+    hashed_collection = salted_hash_collection if use_salts else hashed_pass_collection
     
+    password = hashed_collection.get(hash)
+    
+    if password:
+        return password
+    else:
+        return "PASSWORD NOT IN DATABASE"
