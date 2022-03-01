@@ -23,7 +23,7 @@ def get_open_ports(target, port_range, verbose=False):
     for port in range(port_range[0], port_range[1] + 1):
       try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(0.1)
+        sock.settimeout(0.5)
         result = sock.connect_ex((target, port))
         if result == 0: 
           open_ports.append(port)
