@@ -104,18 +104,18 @@ io.on('connection', (socket) => {
 
   // Spawn a new collectible
   socket.on("newCollectible", (collectible) => {
-    console.log("New Collectible:", collectible.id)
+    console.log("New Collectible:", collectible.id, collectible.x, collectible.y, new Date().toTimeString())
     gameState.collectible = collectible
   })
 
   // Handle collectible catching event
-  socket.on("collectibleCaught", (playerandcollectible) => {
-    console.log("Collectible Caught")
+  socket.on("collectibleCaught", (collectingPlayer) => {
+    console.log("Collectible Caught:", new Date().toTimeString())
     delete gameState.collectible
     for (var player in gameState.players) {
-      if (gameState.players[player].id == playerandcollectible.id)
-        gameState.players[player].score += playerandcollectible.value
-      gameState.caughtLastCollectible = playerandcollectible.id
+      if (gameState.players[player].id == collectingPlayer.id)
+        gameState.players[player].score += collectingPlayer.value
+      gameState.caughtLastCollectible = collectingPlayer.id
     }
     console.log(gameState.players)
   })
