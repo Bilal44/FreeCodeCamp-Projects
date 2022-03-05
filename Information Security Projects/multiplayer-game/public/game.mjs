@@ -57,10 +57,6 @@ const render = (gameState) => {
     context.fillText(playerRank, 540, 30);
 }
 
-function getRandomPosition(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
 socket.on("state", (gameState) => {
     if (!gameState)
         return
@@ -74,7 +70,7 @@ socket.on("state", (gameState) => {
         setInterval(() => {
             emittedCollectible = false
         }
-            , 500)
+            , 1000)
     }
     else
         collectible = gameState.collectible
@@ -92,7 +88,7 @@ socket.on("state", (gameState) => {
             setInterval(() => {
                 canCatch = true
             }
-                , 500)
+                , 1000)
         }
 
     if (players.length != gameState.nbPlayers) {
@@ -117,6 +113,10 @@ const keyDownHandler = (e) => {
     currentPlayer.movePlayer(direction, speed)
 }
 
+function getRandomPosition(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 function getRandomId() {
     var id = '';
     for (var i = 0; i < 5; i++) {
@@ -128,6 +128,6 @@ function getRandomId() {
 setInterval(() => {
     socket.emit("playerMoved", currentPlayer)
 }
-    , 500 / 60)
+    , 1000 / 60)
 
 document.addEventListener('keydown', keyDownHandler, false);
