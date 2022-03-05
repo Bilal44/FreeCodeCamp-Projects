@@ -19,11 +19,11 @@ var emittedCollectible = false
 
 // Load images on init for quicker operation later
 var flag = new Image();
-flag.src = '/public/assets/flag.png'; // can also be a remote URL e.g. http://
+flag.src = '/assets/flag.png';
 var playerAvatar = new Image();
-playerAvatar.src = '/public/assets/player.png'
+playerAvatar.src = '/assets/player.png'
 var opponentAvatar = new Image();
-opponentAvatar.src = '/public/assets/opponent.png'
+opponentAvatar.src = '/assets/opponent.png'
 
 socket.emit('newPlayer', currentPlayer);
 
