@@ -10,7 +10,6 @@ var collectible
 var direction = ""
 var players = []
 var playerRank = 0
-var playerScore = 0
 const width = 15
 const height = 35
 const speed = 25
@@ -50,7 +49,7 @@ const render = (gameState) => {
 
     // Player score
     context.font = "12pt 'Press Start 2P'";
-    context.fillText("Score: " + playerScore, 375, 30);
+    context.fillText("Score: " + currentPlayer.score, 375, 30);
 
     // Get player's rank
     context.font = "12pt 'Press Start 2P'";
@@ -81,7 +80,7 @@ socket.on("state", (gameState) => {
     if (collectible)
         if (currentPlayer.collision(collectible) && canCatch) {
             socket.emit("collectibleCaught", { id: currentPlayer.id, value: collectible.value })
-            playerScore++;
+            currentPlayer.score += collectible.value;
             canCatch = false
 
             // Add a delay after catching the collectible to prevent early emission of the new collectible
