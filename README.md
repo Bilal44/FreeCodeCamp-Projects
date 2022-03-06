@@ -5,11 +5,11 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 
 - ## FCC Microservice API Projects ([GitHub Link](https://github.com/Bilal44/FCC-Microservice-API-Projects))
 
-    1. Timestamp Microservice :heavy_check_mark: <b><a href="https://fcc-be1-timestamp.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    2. Request Header Parser Microservice :heavy_check_mark: <b><a href="https://fcc-be2-header-parser.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    3. URL Shortener Microservice :heavy_check_mark: <b><a href="https://fcc-be3-url-shortener.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    4. Exercise Tracker (Full Stack) :heavy_check_mark: <b><a href="https://fcc-be4-exercise-tracker.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    5. File Metadata Microservice :heavy_check_mark: <b><a href="https://fcc-be5-file-metadata.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
+    1. Timestamp Microservice :heavy_check_mark: <b><a href="https://fcc-be1-timestamp.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    2. Request Header Parser Microservice :heavy_check_mark: <b><a href="https://fcc-be2-header-parser.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    3. URL Shortener Microservice :heavy_check_mark: <b><a href="https://fcc-be3-url-shortener.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    4. Exercise Tracker (Full Stack) :heavy_check_mark: <b><a href="https://fcc-be4-exercise-tracker.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    5. File Metadata Microservice :heavy_check_mark: <b><a href="https://fcc-be5-file-metadata.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
 
     <a href="https://www.freecodecamp.org/certification/bilal44/back-end-development-and-apis" target="_black" title="Backend Development & API Certificate"><p align="center"><img src="./Certificate blob/FCC-BE-Certificate.PNG" text="Backend Development & API Certificate" width="80%" /></p></a>
 
@@ -27,11 +27,11 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     <a href="https://www.freecodecamp.org/certification/bilal44/front-end-development-libraries"  title="Front End Development Libraries Certificate"><p align="center"><img src="./Certificate blob/FCC-FE-Certificate.PNG" text="Front End Development Libraries Certificate" width="80%" /></p></a>
 
 - ## Scientific Computing with Python
-    1. Arithmetic Formatter :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-py1-arithmetic-formatter" target="_blank">Repl Live Demo</a></b>
+    1. Arithmetic Formatter :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-py1-arithmetic-formatter" target="_blank">Repl.it Live Demo</a></b>
     2. Time Calculator :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-py2-time-calculator" target="_blank">Repl Live Demo</a></b>
-    3. Budget App :heavy_check_mark:  <b><a href="https://replit.com/@Bilal441/fcc-py3-budget-app" target="_blank">Repl Live Demo</a></b>
-    4. Polygon Area Calculator :heavy_check_mark:  <b><a href="https://replit.com/@Bilal441/fcc-py4-polygon-area-calculator" target="_blank">Repl Live Demo</a></b>
-    5. Probability Calculator :heavy_check_mark:  <b><a href="https://replit.com/@Bilal441/fcc-py5-probability-calculator" target="_blank">Repl Live Demo</a></b>
+    3. Budget App :heavy_check_mark:  <b><a href="https://replit.com/@Bilal441/fcc-py3-budget-app" target="_blank">Repl.it Live Demo</a></b>
+    4. Polygon Area Calculator :heavy_check_mark:  <b><a href="https://replit.com/@Bilal441/fcc-py4-polygon-area-calculator" target="_blank">Repl.it Live Demo</a></b>
+    5. Probability Calculator :heavy_check_mark:  <b><a href="https://replit.com/@Bilal441/fcc-py5-probability-calculator" target="_blank">Repl.it Live Demo</a></b>
 
     <a href="https://www.freecodecamp.org/certification/bilal44/scientific-computing-with-python-v7" target="_blank" title="Scientific Computing with Python Certificate"><p align="center"><img src="./Certificate blob/FCC-PY-Certificate.PNG" text="Scientific Computing with Python Certificate" width="80%" /></p></a>
 
@@ -45,15 +45,23 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
     <a href="https://www.freecodecamp.org/certification/bilal44/data-visualization" target="_blank" title="Data Visualization Certificate"><p align="center"><img src="./Certificate blob/FCC-D3-Certificate.PNG" text="Data Visualization Certificate" width="80%" /></p></a>
 
 - ## Quality Assurance
-    1. Metric-Imperial Converter :heavy_check_mark: <b><a href="https://fcc-qa1-metric-imperial-converter.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    2. Issue Tracker :heavy_check_mark: <b><a href="https://fcc-qa2-issue-tracker.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    3. Personal Library :heavy_check_mark: <b><a href="https://fcc-qa3-personal-library.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    4. Sudoku Solver :heavy_check_mark: <b><a href="https://fcc-qa4-sudoku-solver.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    5. American British Translator :heavy_check_mark: <b><a href="https://fcc-qa5-american-british-translator.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
+    1. Metric-Imperial Converter :heavy_check_mark: <b><a href="https://fcc-qa1-metric-imperial-converter.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    2. Issue Tracker :heavy_check_mark: <b><a href="https://fcc-qa2-issue-tracker.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    3. Personal Library :heavy_check_mark: <b><a href="https://fcc-qa3-personal-library.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    4. Sudoku Solver :heavy_check_mark: <b><a href="https://fcc-qa4-sudoku-solver.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    5. American British Translator :heavy_check_mark: <b><a href="https://fcc-qa5-american-british-translator.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
 
     <a href="https://www.freecodecamp.org/certification/bilal44/quality-assurance-v7" target="_blank" title="Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-QA-Certificate.PNG" text="Quality Assurance Certificate" width="80%" /></p></a>
     
-    6. Stock Price Checker :heavy_check_mark:<b><a href="https://fcc-is1-stock-checker.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
-    7. Anonymous Message Board :heavy_check_mark: <b><a href="https://fcc-is2-anonymous-message-board.bilal441.repl.co" target="_blank">Repl Live Demo</a></b>
+    6. Stock Price Checker :heavy_check_mark: <b><a href="https://fcc-is1-stock-checker.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+    7. Anonymous Message Board :heavy_check_mark: <b><a href="https://fcc-is2-anonymous-message-board.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
 
     <a href="https://www.freecodecamp.org/certification/bilal44/information-security-and-quality-assurance" target="_blank" title="Legacy Information Security and Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-LQ-Certificate.PNG" text="Legacy Information Security and Quality Assurance Certificate" width="80%" /></p></a>
+
+## Information Security
+
+1. Stock Price Checker :heavy_check_mark: <b><a href="https://fcc-is1-stock-checker.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+2. Anonymous Message Board :heavy_check_mark: <b><a href="https://fcc-is2-anonymous-message-board.bilal441.repl.co" target="_blank">Repl.it Live Demo</a></b>
+3. Port Scanner :heavy_check_mark:
+4. SHA-1 Password Cracker :heavy_check_mark:
+5. Secure Real Time Multiplayer Game :heavy_check_mark:
