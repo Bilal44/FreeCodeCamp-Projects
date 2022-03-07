@@ -58,12 +58,12 @@ Projects developed for [freeCodeCamp](https://www.freecodecamp.org) online cours
 
     <a href="https://www.freecodecamp.org/certification/bilal44/information-security-and-quality-assurance" target="_blank" title="Legacy Information Security and Quality Assurance Certificate"><p align="center"><img src="./Certificate blob/FCC-LQ-Certificate.PNG" text="Legacy Information Security and Quality Assurance Certificate" width="80%" /></p></a>
 
-## Information Security
-
-1. Stock Price Checker :heavy_check_mark: <b><a href="https://fcc-is1-stock-checker.bilal441.repl.co" target="_blank">REPL Live Demo</a></b>
-2. Anonymous Message Board :heavy_check_mark: <b><a href="https://fcc-is2-anonymous-message-board.bilal441.repl.co" target="_blank">REPL Live Demo</a></b>
-3. Port Scanner :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-is3-port-scanner" target="_blank">REPL Live Demo</a></b>
-4. SHA-1 Password Cracker :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-is4-sha-1-password-cracker" target="_blank">REPL Live Demo</a></b>
-5. Secure Real Time Multiplayer Game :heavy_check_mark: <b><a href="https://fcc-is5-multiplayer-game.bilal441.repl.co" target="_blank">REPL Live Demo</a></b>
+ - ## Information Security
+ 
+    1. Stock Price Checker :heavy_check_mark: <b><a href="https://fcc-is1-stock-checker.bilal441.repl.co" target="_blank">REPL Live Demo</a></b>
+    2. Anonymous Message Board :heavy_check_mark: <b><a href="https://fcc-is2-anonymous-message-board.bilal441.repl.co" target="_blank">REPL Live Demo</a></b>
+    3. Port Scanner :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-is3-port-scanner" target="_blank">REPL Live Demo</a></b>
+    4. SHA-1 Password Cracker :heavy_check_mark: <b><a href="https://replit.com/@Bilal441/fcc-is4-sha-1-password-cracker" target="_blank">REPL Live Demo</a></b>
+    5. Secure Real Time Multiplayer Game :heavy_check_mark: <b><a href="https://fcc-is5-multiplayer-game.bilal441.repl.co" target="_blank">REPL Live Demo</a></b>
 
     <a href="https://www.freecodecamp.org/certification/bilal44/information-security-v7" target="_blank" title="Information Security Certificate"><p align="center"><img src="./Certificate blob/FCC-IS-Certificate.PNG" text="Information Security Certificate" width="80%" /></p></a>
